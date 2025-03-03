@@ -1,0 +1,30 @@
+\ifglsentryexists{esp}{}%
+{%
+\gls@defglossaryentry{esp}%
+{%
+name={ESP},%
+sort={ESP},%
+type={acronym},%
+first={Ecole Sup\IeC {\'e}rieure Polytechnique\glsspace (ESP)},%
+firstplural={Ecole Sup\IeC {\'e}rieure Polytechnique\glsspace (ESP)},%
+text={ESP},%
+plural={ESP},%
+description={Ecole Supérieure Polytechnique},%
+descriptionplural={Ecole Supérieure Polytechnique\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Ecole Sup\IeC {\'e}rieure Polytechnique},%
+longplural={Ecole Sup\IeC {\'e}rieure Polytechnique},%
+short={ESP},%
+shortplural={ESP},%
+counter={page},%
+parent={},%
+%
+}%
+}%

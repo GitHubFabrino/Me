@@ -1,0 +1,106 @@
+\begin{thebibliography}{10}
+
+\bibitem{t1}
+BOUTTE Aïssa.
+\newblock {\em Identification des paramètres internes d’une batterie pour
+  des applications photovoltaïques}.
+\newblock PhD thesis, Université des Sciences et de la Technologie d'Oran
+  Mohamed Boudiaf « USTO-MB », 2015.
+
+\bibitem{l3}
+Jean Oaillaud.
+\newblock {\em L’énergie solaire photovoltaïque}.
+\newblock Lycée des métiersde l'énergie de la métallurgie et de la vente.
+
+\bibitem{l1}
+Houssein SWEIF.
+\newblock {\em Système de gestion et de surveillance des batteries utilisées
+  dans les systèmes d'alimentation sans interruption}.
+\newblock Hal Open Science, 2016.
+
+\bibitem{a1}
+Balakumar~Balasingam Kiarash~Movassagh, Arif~Raihan and Krishna Pattipat.
+\newblock A critical look at coulomb counting approach for state of charge
+  estimation in batteries.
+\newblock {\em Energies}, 14(4074):7--8, 2021.
+
+\bibitem{a2}
+Martin Murnane and Adel Ghazel.
+\newblock A closer look at state of charge (soc) and state of health (soh)
+  estimation techniques for batteries.
+\newblock {\em Analog Devices}, page~2, Mar 31 2023.
+
+\bibitem{l2}
+Gundogdu B. and Gladwin~D. T.
+\newblock {\em A Fast Battery Cycle Counting Method for Grid-Tied Battery
+  Energy Storage System Subjected to Microcycles}.
+\newblock Department of Electronic and Electrical Engineering, University of
+  Sheffield, Mar 2018.
+
+\bibitem{a4}
+Nabaa Hameed~Chekhyor Dr. Saher Mahmood~Jawd1 and Aryaf~Mahmood Sabea.
+\newblock Solar energy batteries-a critical review.
+\newblock {\em Journal of Instrumentation and Innovation Sciences}, Volume 6,
+  Issue 3(2456-9860):25--30, September-December, 2021.
+
+\bibitem{a3}
+Nabaa Hameed~Chekhyor Dr. Saher Mahmood~Jawd1 and Aryaf~Mahmood Sabea.
+\newblock Types of solar cell batteries and their energy charging methods.
+\newblock {\em Journal of Thermal Engineering and Applications}, Volume 8,
+  Issue 2(2349-8994):16--17, October 2021.
+
+\bibitem{pdf1}
+Pr. RAZAFIMAHENINA~Jean Marie.
+\newblock {\em Utilisation et Application des énergies renouvelables }.
+\newblock 2024.
+
+\bibitem{1}
+Acs712 30a.
+\newblock Consulté le: 14 août 2024. [En ligne]. Disponible sur:
+  \url{https://quartzcomponents.com/products/acs712-30a-current-sensor-module}.
+
+\bibitem{3}
+Lm 35.
+\newblock Consulté le: 14 août 2024. [En ligne]. Disponible sur:
+  \url{https://www.mikroe.com/lm35-sensor}.
+
+\bibitem{5}
+Upesy.
+\newblock Esp 32 pinout.
+\newblock Consulté le: 5 août 2024. [En ligne]. Disponible sur:
+  \url{https://www.upesy.fr/blogs/tutorials/esp32-pinout-reference-gpio-pins-ultimate-guide}.
+
+\bibitem{8}
+Algo.tn.
+\newblock «esp32-introduction,».
+\newblock Consulté le: 5 août 2024. [En ligne]. Disponible sur:
+  \url{http://algo.tn/esp32/introduction/}.
+
+\bibitem{6}
+Lcd with i2c.
+\newblock Consulté le: 5 août 2024. [En ligne]. Disponible sur:
+  \url{https://cepmaroc.com/afficheurs/129-afficheur-lcd-2-x-16-i2c.html}.
+
+\bibitem{7}
+Electronic Devices.
+\newblock Module gsm sim900.
+\newblock Consulté le: 5 août 2024. [En ligne]. Disponible sur:
+  \url{https://mytectutor.com/sim900-gsm-gprs-shield-with-arduino/}.
+
+\bibitem{2}
+RELAIS 5VDC.
+\newblock Consulté le: 14 août 2024. [En ligne]. Disponible sur:
+  \url{https://www.micro-planet.ma/produit/module-2-relais-5v/}.
+
+\bibitem{9}
+ProjectIot.
+\newblock 2n2222 transistor working pinout data sheet.
+\newblock Consulté le: 5 août 2024. [En ligne]. Disponible sur:
+  \url{https://projectiot123.com/2023/12/02/2n2222-transistor-working-pinout-data-sheet/}.
+
+\bibitem{4}
+1n4728a diode zener.
+\newblock Consulté le: 14 août 2024. [En ligne]. Disponible sur:
+  \url{https://www.mikroe.com/lm35-sensor}.
+
+\end{thebibliography}

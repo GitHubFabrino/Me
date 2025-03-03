@@ -1,0 +1,25 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Fonction pour identifier et filtrer les valeurs aberrantes}
+\PYG{k}{def} \PYG{n+nf}{remove\PYGZus{}outliers}\PYG{p}{(}\PYG{n}{df}\PYG{p}{):}
+   \PYG{k}{for} \PYG{n}{column} \PYG{o+ow}{in} \PYG{n}{df}\PYG{o}{.}\PYG{n}{select\PYGZus{}dtypes}\PYG{p}{(}\PYG{n}{include}\PYG{o}{=}\PYG{p}{[}\PYG{n}{np}\PYG{o}{.}\PYG{n}{number}\PYG{p}{])}\PYG{o}{.}\PYG{n}{columns}\PYG{p}{:}
+     \PYG{n}{Q1} \PYG{o}{=} \PYG{n}{df}\PYG{p}{[}\PYG{n}{column}\PYG{p}{]}\PYG{o}{.}\PYG{n}{quantile}\PYG{p}{(}\PYG{l+m+mf}{0.25}\PYG{p}{)}
+     \PYG{n}{Q3} \PYG{o}{=} \PYG{n}{df}\PYG{p}{[}\PYG{n}{column}\PYG{p}{]}\PYG{o}{.}\PYG{n}{quantile}\PYG{p}{(}\PYG{l+m+mf}{0.75}\PYG{p}{)}
+     \PYG{n}{IQR} \PYG{o}{=} \PYG{n}{Q3} \PYG{o}{\PYGZhy{}} \PYG{n}{Q1}
+     \PYG{n}{lower\PYGZus{}bound} \PYG{o}{=} \PYG{n}{Q1} \PYG{o}{\PYGZhy{}} \PYG{l+m+mf}{1.5} \PYG{o}{*} \PYG{n}{IQR}
+     \PYG{n}{upper\PYGZus{}bound} \PYG{o}{=} \PYG{n}{Q3} \PYG{o}{+} \PYG{l+m+mf}{1.5} \PYG{o}{*} \PYG{n}{IQR}
+     \PYG{c+c1}{\PYGZsh{} Filtrer les valeurs aberrantes}
+     \PYG{n}{df} \PYG{o}{=} \PYG{n}{df}\PYG{p}{[(}\PYG{n}{df}\PYG{p}{[}\PYG{n}{column}\PYG{p}{]} \PYG{o}{\PYGZgt{}=} \PYG{n}{lower\PYGZus{}bound}\PYG{p}{)} \PYG{o}{\PYGZam{}} \PYG{p}{(}\PYG{n}{df}\PYG{p}{[}\PYG{n}{column}\PYG{p}{]} \PYG{o}{\PYGZlt{}=} \PYG{n}{upper\PYGZus{}bound}\PYG{p}{)]}
+   \PYG{k}{return} \PYG{n}{df}
+	
+\PYG{c+c1}{\PYGZsh{} 1. Suppression des valeurs manquantes}
+\PYG{n}{data\PYGZus{}cleaned} \PYG{o}{=} \PYG{n}{data}\PYG{o}{.}\PYG{n}{dropna}\PYG{p}{()}
+	
+\PYG{c+c1}{\PYGZsh{} 2. Suppression des doublons}
+\PYG{n}{data\PYGZus{}cleaned} \PYG{o}{=} \PYG{n}{data\PYGZus{}cleaned}\PYG{o}{.}\PYG{n}{drop\PYGZus{}duplicates}\PYG{p}{()}
+	
+\PYG{c+c1}{\PYGZsh{} 3. Identification et traitement des valeurs aberrantes}
+\PYG{n}{data\PYGZus{}cleaned} \PYG{o}{=} \PYG{n}{remove\PYGZus{}outliers}\PYG{p}{(}\PYG{n}{data}\PYG{p}{)}
+	
+\PYG{c+c1}{\PYGZsh{} Vérifier la structure des données après nettoyage}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{data\PYGZus{}cleaned}\PYG{o}{.}\PYG{n}{describe}\PYG{p}{())}
+\end{Verbatim}

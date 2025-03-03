@@ -1,0 +1,6 @@
+# actualiser le bibliographie 
+bibtex main
+# applique le mise a jour
+pdflatex main.tex
+pdflatex main.tex
+

@@ -1,0 +1,172 @@
+\BOOKMARK [0][-]{section*.2}{Remerciements}{}% 1
+\BOOKMARK [0][-]{section*.2}{Cahier des charges}{}% 2
+\BOOKMARK [0][-]{section*.4}{R\351sum\351}{}% 3
+\BOOKMARK [0][-]{section*.6}{Abstract}{}% 4
+\BOOKMARK [0][-]{chapter*.7}{Table des mati\350res}{}% 5
+\BOOKMARK [0][-]{chapter*.8}{Liste des figures}{}% 6
+\BOOKMARK [0][-]{chapter*.9}{Liste des tableaux}{}% 7
+\BOOKMARK [0][-]{section*.11}{Liste des symboles et acronymes}{}% 8
+\BOOKMARK [0][-]{section*.15}{Introduction g\351n\351rale}{}% 9
+\BOOKMARK [0][-]{chapter.1}{G\351n\351ralit\351 sur les syst\350mes photovolta\357ques et les batteries solaires}{}% 10
+\BOOKMARK [1][-]{section.1.1}{Introduction}{chapter.1}% 11
+\BOOKMARK [1][-]{section.1.2}{Les applications photovolta\357ques}{chapter.1}% 12
+\BOOKMARK [1][-]{section.1.3}{Le panneau photovolta\357que}{chapter.1}% 13
+\BOOKMARK [2][-]{subsection.1.3.1}{Cellule solaire}{section.1.3}% 14
+\BOOKMARK [3][-]{subsubsection.1.3.1.1}{Principe de fonctionnement}{subsection.1.3.1}% 15
+\BOOKMARK [3][-]{subsubsection.1.3.1.2}{Constitution d\220un champ photovolta\357que}{subsection.1.3.1}% 16
+\BOOKMARK [1][-]{section.1.4}{Les batteries}{chapter.1}% 17
+\BOOKMARK [2][-]{subsection.1.4.1}{Classification des batteries}{section.1.4}% 18
+\BOOKMARK [2][-]{subsection.1.4.2}{Les param\350tres d'une batterie}{section.1.4}% 19
+\BOOKMARK [3][-]{subsubsection.1.4.2.1}{La tension}{subsection.1.4.2}% 20
+\BOOKMARK [3][-]{subsubsection.1.4.2.2}{Le courant}{subsection.1.4.2}% 21
+\BOOKMARK [3][-]{subsubsection.1.4.2.3}{La temp\351rature}{subsection.1.4.2}% 22
+\BOOKMARK [3][-]{subsubsection.1.4.2.4}{La capacit\351}{subsection.1.4.2}% 23
+\BOOKMARK [3][-]{subsubsection.1.4.2.5}{Ph\351nom\350ne d'autod\351charge}{subsection.1.4.2}% 24
+\BOOKMARK [3][-]{subsubsection.1.4.2.6}{\311tat de Charge \(SoC\)}{subsection.1.4.2}% 25
+\BOOKMARK [3][-]{subsubsection.1.4.2.7}{La Profondeur de D\351charge \(DoD\)}{subsection.1.4.2}% 26
+\BOOKMARK [3][-]{subsubsection.1.4.2.8}{Le Nombre de Cycles \(Nb\137Cycles\)}{subsection.1.4.2}% 27
+\BOOKMARK [3][-]{subsubsection.1.4.2.9}{L\220\351tat de sant\351 \(SOH\)}{subsection.1.4.2}% 28
+\BOOKMARK [2][-]{subsection.1.4.3}{Structure de la batterie}{section.1.4}% 29
+\BOOKMARK [2][-]{subsection.1.4.4}{Les batteries solaires}{section.1.4}% 30
+\BOOKMARK [3][-]{subsubsection.1.4.4.1}{Fonctionnement d\220une batterie solaire}{subsection.1.4.4}% 31
+\BOOKMARK [2][-]{subsection.1.4.5}{Types de Batteries Solaires}{section.1.4}% 32
+\BOOKMARK [3][-]{subsubsection.1.4.5.1}{Comparaison des Types de Batteries Solaires}{subsection.1.4.5}% 33
+\BOOKMARK [1][-]{section.1.5}{Proc\351dure de dimensionnement d\220une champ photovolta\357que }{chapter.1}% 34
+\BOOKMARK [2][-]{subsection.1.5.1}{Besoin \351nerg\351tique des applications}{section.1.5}% 35
+\BOOKMARK [2][-]{subsection.1.5.2}{\311nergie solaire r\351cup\351rable}{section.1.5}% 36
+\BOOKMARK [3][-]{subsubsection.1.5.2.1}{Inclinaison et orientation des panneaux}{subsection.1.5.2}% 37
+\BOOKMARK [3][-]{subsubsection.1.5.2.2}{Donn\351es m\351t\351orologiques}{subsection.1.5.2}% 38
+\BOOKMARK [2][-]{subsection.1.5.3}{\311nergie produite \(Wh/jour\)}{section.1.5}% 39
+\BOOKMARK [2][-]{subsection.1.5.4}{Puissance cr\352te \(Pc\) des modules photovolta\357ques}{section.1.5}% 40
+\BOOKMARK [2][-]{subsection.1.5.5}{Choix de la tension de fonctionnement}{section.1.5}% 41
+\BOOKMARK [3][-]{subsubsection.1.5.5.1}{Choix du type de module photovolta\357que}{subsection.1.5.5}% 42
+\BOOKMARK [3][-]{subsubsection.1.5.5.2}{D\351termination du nombre de modules \340 installer}{subsection.1.5.5}% 43
+\BOOKMARK [3][-]{subsubsection.1.5.5.3}{R\351partition des modules}{subsection.1.5.5}% 44
+\BOOKMARK [2][-]{subsection.1.5.6}{Caract\351ristiques du g\351n\351rateur}{section.1.5}% 45
+\BOOKMARK [2][-]{subsection.1.5.7}{Dimensionnement des \351l\351ments de stockage}{section.1.5}% 46
+\BOOKMARK [2][-]{subsection.1.5.8}{Dimensionnement du r\351gulateur}{section.1.5}% 47
+\BOOKMARK [2][-]{subsection.1.5.9}{Dimensionnement de l\220onduleur}{section.1.5}% 48
+\BOOKMARK [2][-]{subsection.1.5.10}{Choix des c\342bles}{section.1.5}% 49
+\BOOKMARK [3][-]{subsubsection.1.5.10.1}{Calcul de la section des c\342bles}{subsection.1.5.10}% 50
+\BOOKMARK [2][-]{subsection.1.5.11}{Courant circulant entre les batteries et l\220onduleur}{section.1.5}% 51
+\BOOKMARK [1][-]{section.1.6}{Conclusion}{chapter.1}% 52
+\BOOKMARK [0][-]{chapter.2}{Fonctionnement g\351n\351ral du syst\350me et les composantes \351lectroniques}{}% 53
+\BOOKMARK [0][-]{section*.29}{Fonctionnement g\351n\351ral du syst\350me}{}% 54
+\BOOKMARK [1][-]{section.2.1}{Fonctionnement g\351n\351ral du syst\350me }{section*.29}% 55
+\BOOKMARK [2][-]{subsection.2.1.1}{Introduction}{section.2.1}% 56
+\BOOKMARK [3][-]{subsubsection.2.1.1.1}{Pr\351sentation g\351n\351rale du dispositif}{subsection.2.1.1}% 57
+\BOOKMARK [3][-]{subsubsection.2.1.1.2}{Analyse des besoins du dispositif}{subsection.2.1.1}% 58
+\BOOKMARK [3][-]{subsubsection.2.1.1.3}{Architecture g\351n\351rale du syst\350me}{subsection.2.1.1}% 59
+\BOOKMARK [2][-]{subsection.2.1.2}{Principe de fonctionnement du dispositif}{section.2.1}% 60
+\BOOKMARK [3][-]{subsubsection.2.1.2.1}{Organigramme}{subsection.2.1.2}% 61
+\BOOKMARK [3][-]{subsubsection.2.1.2.2}{\311tude d'une cas d'installation}{subsection.2.1.2}% 62
+\BOOKMARK [1][-]{section.2.2}{Les composantes \351lectroniques adapt\351s au projet}{section*.29}% 63
+\BOOKMARK [2][-]{subsection.2.2.1}{Les capteurs et instruments de Mesure}{section.2.2}% 64
+\BOOKMARK [3][-]{subsubsection.2.2.1.1}{Les capteurs de courant et de tension }{subsection.2.2.1}% 65
+\BOOKMARK [3][-]{subsubsection.2.2.1.2}{Capteurs de temp\351rature LM35}{subsection.2.2.1}% 66
+\BOOKMARK [2][-]{subsection.2.2.2}{Partie traitement et contr\364le}{section.2.2}% 67
+\BOOKMARK [3][-]{subsubsection.2.2.2.1}{Microcontr\364leur ESP 32 WROOM 32}{subsection.2.2.2}% 68
+\BOOKMARK [2][-]{subsection.2.2.3}{Afficheur LCD avec module I2C}{section.2.2}% 69
+\BOOKMARK [2][-]{subsection.2.2.4}{Module de Communication}{section.2.2}% 70
+\BOOKMARK [2][-]{subsection.2.2.5}{Module relais 5V DC}{section.2.2}% 71
+\BOOKMARK [2][-]{subsection.2.2.6}{Transistor 2N2222}{section.2.2}% 72
+\BOOKMARK [2][-]{subsection.2.2.7}{Diode Zener 1N4728A}{section.2.2}% 73
+\BOOKMARK [1][-]{section.2.3}{Le syst\350me multi-capteurs contr\364l\351 par ESP32}{section*.29}% 74
+\BOOKMARK [1][-]{section.2.4}{Conclusion}{section*.29}% 75
+\BOOKMARK [0][-]{chapter.3}{Transmission des donn\351es en temps r\351el et mod\351lisation de l'application web}{}% 76
+\BOOKMARK [1][-]{section.3.1}{Introduction}{chapter.3}% 77
+\BOOKMARK [2][-]{subsection.3.1.1}{Principe d'envoi des donn\351es}{section.3.1}% 78
+\BOOKMARK [2][-]{subsection.3.1.2}{ WiFi int\351grer au ESP32 pour la transmission des donn\351es}{section.3.1}% 79
+\BOOKMARK [2][-]{subsection.3.1.3}{Le module GSM pour l'envoi des messages}{section.3.1}% 80
+\BOOKMARK [2][-]{subsection.3.1.4}{R\351seaux Wi-Fi }{section.3.1}% 81
+\BOOKMARK [2][-]{subsection.3.1.5}{R\351seau cellulaire GSM}{section.3.1}% 82
+\BOOKMARK [2][-]{subsection.3.1.6}{Le protocole MQTT}{section.3.1}% 83
+\BOOKMARK [3][-]{subsubsection.3.1.6.1}{Caract\351ristiques principales de MQTT :}{subsection.3.1.6}% 84
+\BOOKMARK [2][-]{subsection.3.1.7}{Structure du protocole HTTP/HTTPS}{section.3.1}% 85
+\BOOKMARK [3][-]{subsubsection.3.1.7.1}{Mod\350le requ\352te-r\351ponse}{subsection.3.1.7}% 86
+\BOOKMARK [3][-]{subsubsection.3.1.7.2}{M\351thodes HTTP}{subsection.3.1.7}% 87
+\BOOKMARK [3][-]{subsubsection.3.1.7.3}{Codes de Statut HTTP}{subsection.3.1.7}% 88
+\BOOKMARK [3][-]{subsubsection.3.1.7.4}{HTTPS}{subsection.3.1.7}% 89
+\BOOKMARK [3][-]{subsubsection.3.1.7.5}{Sessions et cookies}{subsection.3.1.7}% 90
+\BOOKMARK [1][-]{section.3.2}{ Mod\351lisation de l'application web}{chapter.3}% 91
+\BOOKMARK [2][-]{subsection.3.2.1}{Introduction}{section.3.2}% 92
+\BOOKMARK [2][-]{subsection.3.2.2}{UML}{section.3.2}% 93
+\BOOKMARK [3][-]{subsubsection.3.2.2.1}{Diagramme de cas d'utilisation}{subsection.3.2.2}% 94
+\BOOKMARK [3][-]{subsubsection.3.2.2.2}{Diagramme d'activit\351}{subsection.3.2.2}% 95
+\BOOKMARK [3][-]{subsubsection.3.2.2.3}{Diagramme de s\351quence}{subsection.3.2.2}% 96
+\BOOKMARK [3][-]{subsubsection.3.2.2.4}{Diagramme de classe}{subsection.3.2.2}% 97
+\BOOKMARK [2][-]{subsection.3.2.3}{Draw.io}{section.3.2}% 98
+\BOOKMARK [1][-]{section.3.3}{Conclusion}{chapter.3}% 99
+\BOOKMARK [0][-]{chapter.4}{R\351alisation du dispositif}{}% 100
+\BOOKMARK [1][-]{section.4.1}{Introduction}{chapter.4}% 101
+\BOOKMARK [2][-]{subsection.4.1.1}{Conception et dimensionnement des divers composants du syst\350me}{section.4.1}% 102
+\BOOKMARK [3][-]{subsubsection.4.1.1.1}{Circuits de l\220interface de puissance}{subsection.4.1.1}% 103
+\BOOKMARK [3][-]{subsubsection.4.1.1.2}{Brochage des Composants}{subsection.4.1.1}% 104
+\BOOKMARK [2][-]{subsection.4.1.2}{C\342blage r\351alis\351}{section.4.1}% 105
+\BOOKMARK [2][-]{subsection.4.1.3}{Mise en bo\356te}{section.4.1}% 106
+\BOOKMARK [1][-]{section.4.2}{Conclusion}{chapter.4}% 107
+\BOOKMARK [0][-]{chapter.5}{Pr\351sentation des interfaces}{}% 108
+\BOOKMARK [1][-]{section.5.1}{Introduction}{chapter.5}% 109
+\BOOKMARK [2][-]{subsection.5.1.1}{Technologies utilis\351es}{section.5.1}% 110
+\BOOKMARK [3][-]{subsubsection.5.1.1.1}{Frontend}{subsection.5.1.1}% 111
+\BOOKMARK [3][-]{subsubsection.5.1.1.2}{Backend}{subsection.5.1.1}% 112
+\BOOKMARK [3][-]{subsubsection.5.1.1.3}{Gestion des versions}{subsection.5.1.1}% 113
+\BOOKMARK [1][-]{section.5.2}{Les interfaces }{chapter.5}% 114
+\BOOKMARK [2][-]{subsection.5.2.1}{Authentification}{section.5.2}% 115
+\BOOKMARK [2][-]{subsection.5.2.2}{Page d'accueil}{section.5.2}% 116
+\BOOKMARK [2][-]{subsection.5.2.3}{Page de gestion du parc}{section.5.2}% 117
+\BOOKMARK [2][-]{subsection.5.2.4}{Param\350tres de la batterie}{section.5.2}% 118
+\BOOKMARK [2][-]{subsection.5.2.5}{Page de gestion des incidents}{section.5.2}% 119
+\BOOKMARK [2][-]{subsection.5.2.6}{Page d'historique des donn\351es}{section.5.2}% 120
+\BOOKMARK [2][-]{subsection.5.2.7}{Notifications}{section.5.2}% 121
+\BOOKMARK [1][-]{section.5.3}{Conclusion}{chapter.5}% 122
+\BOOKMARK [0][-]{chapter.6}{Traitement des donn\351es et conception de l'intelligence artificielle}{}% 123
+\BOOKMARK [1][-]{section.6.1}{Introduction}{chapter.6}% 124
+\BOOKMARK [2][-]{subsection.6.1.1}{Traitement des donn\351es}{section.6.1}% 125
+\BOOKMARK [3][-]{subsubsection.6.1.1.1}{Collecte des donn\351es}{subsection.6.1.1}% 126
+\BOOKMARK [3][-]{subsubsection.6.1.1.2}{Nettoyage des donn\351es}{subsection.6.1.1}% 127
+\BOOKMARK [3][-]{subsubsection.6.1.1.3}{Gestion des valeurs manquantes}{subsection.6.1.1}% 128
+\BOOKMARK [2][-]{subsection.6.1.2}{D\351finition des nouveaux param\350tres}{section.6.1}% 129
+\BOOKMARK [1][-]{section.6.2}{Mod\351lisation}{chapter.6}% 130
+\BOOKMARK [2][-]{subsection.6.2.1}{Description des mod\350les}{section.6.2}% 131
+\BOOKMARK [3][-]{subsubsection.6.2.1.1}{R\351gression lin\351aire \(Linear Regression\)}{subsection.6.2.1}% 132
+\BOOKMARK [3][-]{subsubsection.6.2.1.2}{R\351gression de cr\352te \(Ridge Regression\)}{subsection.6.2.1}% 133
+\BOOKMARK [3][-]{subsubsection.6.2.1.3}{R\351gression Lasso \(Lasso Regression\)}{subsection.6.2.1}% 134
+\BOOKMARK [3][-]{subsubsection.6.2.1.4}{For\352t al\351atoire \(Random Forest\)}{subsection.6.2.1}% 135
+\BOOKMARK [3][-]{subsubsection.6.2.1.5}{K-Plus Proches Voisins \(K-Nearest Neighbors, KNN\)}{subsection.6.2.1}% 136
+\BOOKMARK [3][-]{subsubsection.6.2.1.6}{R\351seaux de neurones artificiels \(Artificial Neural Networks, ANN\)}{subsection.6.2.1}% 137
+\BOOKMARK [2][-]{subsection.6.2.2}{Crit\350res d'\351valuation des mod\350les de r\351gression}{section.6.2}% 138
+\BOOKMARK [3][-]{subsubsection.6.2.2.1}{Erreur Quadratique Moyenne \(MSE\)}{subsection.6.2.2}% 139
+\BOOKMARK [3][-]{subsubsection.6.2.2.2}{Erreur Absolue Moyenne \(MAE\)}{subsection.6.2.2}% 140
+\BOOKMARK [3][-]{subsubsection.6.2.2.3}{Erreur Quadratique Moyenne Racine \(RMSE\)}{subsection.6.2.2}% 141
+\BOOKMARK [3][-]{subsubsection.6.2.2.4}{Coefficient de D\351termination \(R2\)}{subsection.6.2.2}% 142
+\BOOKMARK [2][-]{subsection.6.2.3}{Validation des mod\350les de r\351gression}{section.6.2}% 143
+\BOOKMARK [3][-]{subsubsection.6.2.3.1}{Validation crois\351e \(Cross-Validation\)}{subsection.6.2.3}% 144
+\BOOKMARK [3][-]{subsubsection.6.2.3.2}{Courbe d'apprentissage}{subsection.6.2.3}% 145
+\BOOKMARK [3][-]{subsubsection.6.2.3.3}{\311valuation sur un jeu de test ind\351pendant}{subsection.6.2.3}% 146
+\BOOKMARK [1][-]{section.6.3}{D\351veloppement et impl\351mentation}{chapter.6}% 147
+\BOOKMARK [2][-]{subsection.6.3.1}{Outils}{section.6.3}% 148
+\BOOKMARK [1][-]{section.6.4}{Phases de pr\351diction}{chapter.6}% 149
+\BOOKMARK [2][-]{subsection.6.4.1}{Acquisition des donn\351es}{section.6.4}% 150
+\BOOKMARK [2][-]{subsection.6.4.2}{Nettoyage des donn\351es}{section.6.4}% 151
+\BOOKMARK [2][-]{subsection.6.4.3}{Transformation des donn\351es}{section.6.4}% 152
+\BOOKMARK [2][-]{subsection.6.4.4}{S\351paration des donn\351es}{section.6.4}% 153
+\BOOKMARK [2][-]{subsection.6.4.5}{S\351lection du mod\350le}{section.6.4}% 154
+\BOOKMARK [2][-]{subsection.6.4.6}{Optimisation des hyperparam\350tres}{section.6.4}% 155
+\BOOKMARK [2][-]{subsection.6.4.7}{Entra\356nement du mod\350le}{section.6.4}% 156
+\BOOKMARK [2][-]{subsection.6.4.8}{Validation du mod\350le}{section.6.4}% 157
+\BOOKMARK [2][-]{subsection.6.4.9}{G\351n\351ration des pr\351dictions}{section.6.4}% 158
+\BOOKMARK [2][-]{subsection.6.4.10}{\311valuation des pr\351dictions}{section.6.4}% 159
+\BOOKMARK [2][-]{subsection.6.4.11}{Analyse des r\351sultats}{section.6.4}% 160
+\BOOKMARK [3][-]{subsubsection.6.4.11.1}{Interpr\351tation des r\351sultats}{subsection.6.4.11}% 161
+\BOOKMARK [2][-]{subsection.6.4.12}{Visualisation des pr\351dictions}{section.6.4}% 162
+\BOOKMARK [2][-]{subsection.6.4.13}{Choix du model}{section.6.4}% 163
+\BOOKMARK [1][-]{section.6.5}{Int\351gration}{chapter.6}% 164
+\BOOKMARK [1][-]{section.6.6}{Conclusion}{chapter.6}% 165
+\BOOKMARK [0][-]{chapter*.153}{Conclusion g\351n\351rale et perspectives}{}% 166
+\BOOKMARK [0][-]{chapter*.154}{Bibliographie}{}% 167
+\BOOKMARK [0][-]{chapter*.154}{Webographie}{}% 168
+\BOOKMARK [0][-]{section*.157}{Annexe}{}% 169
+\BOOKMARK [1][-]{section.Alph0.1}{Les organigrammes du syst\350me}{section*.157}% 170
+\BOOKMARK [2][-]{subsection.Alph0.1.1}{Initialisation et mesure}{section.Alph0.1}% 171
+\BOOKMARK [2][-]{subsection.Alph0.1.2}{Processus principal et mesure}{section.Alph0.1}% 172

@@ -1,0 +1,78 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{}Transformation des Données}
+\PYG{k}{def} \PYG{n+nf}{calculate\PYGZus{}cycle\PYGZus{}summary}\PYG{p}{(}\PYG{n}{df}\PYG{p}{,} \PYG{n}{capacity\PYGZus{}nominal}\PYG{p}{,} \PYG{n}{life\PYGZus{}cycle\PYGZus{}nominal}\PYG{o}{=}\PYG{l+m+mi}{500}\PYG{p}{):}
+  \PYG{c+c1}{\PYGZsh{} Extraire les valeurs nécessaires du DataFrame}
+  \PYG{n}{soc\PYGZus{}values} \PYG{o}{=} \PYG{n}{df}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}SOC (\PYGZpc{})\PYGZsq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{values}
+  \PYG{n}{timestamps} \PYG{o}{=} \PYG{n}{df}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}Timestamp (s)\PYGZsq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{values}
+  \PYG{n}{tensions} \PYG{o}{=} \PYG{n}{df}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}Tension (V)\PYGZsq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{values}
+  \PYG{n}{currents} \PYG{o}{=} \PYG{n}{df}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}Courant (A)\PYGZsq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{values}
+  \PYG{n}{temperatures} \PYG{o}{=} \PYG{n}{df}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}Température (°C)\PYGZsq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{values}
+
+  \PYG{c+c1}{\PYGZsh{} Initialiser les variables pour le calcul}
+  \PYG{n}{total\PYGZus{}discharge} \PYG{o}{=} \PYG{l+m+mi}{0}
+  \PYG{n}{charge\PYGZus{}time} \PYG{o}{=} \PYG{l+m+mi}{0}
+  \PYG{n}{discharge\PYGZus{}time} \PYG{o}{=} \PYG{l+m+mi}{0}
+  \PYG{n}{charge\PYGZus{}tensions}\PYG{p}{,} \PYG{n}{discharge\PYGZus{}tensions} \PYG{o}{=} \PYG{p}{[],} \PYG{p}{[]}
+  \PYG{n}{charge\PYGZus{}currents}\PYG{p}{,} \PYG{n}{discharge\PYGZus{}currents} \PYG{o}{=} \PYG{p}{[],} \PYG{p}{[]}
+  \PYG{n}{charge\PYGZus{}temperatures}\PYG{p}{,} \PYG{n}{discharge\PYGZus{}temperatures} \PYG{o}{=} \PYG{p}{[],} \PYG{p}{[]}
+  	
+  \PYG{c+c1}{\PYGZsh{} Parcourir les valeurs de SOC pour déterminer les phases de charge et de décharge}
+  \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{soc\PYGZus{}values}\PYG{p}{)):}
+    \PYG{n}{delta\PYGZus{}soc} \PYG{o}{=} \PYG{n}{soc\PYGZus{}values}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{n}{soc\PYGZus{}values}\PYG{p}{[}\PYG{n}{i} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{]}
+    \PYG{n}{delta\PYGZus{}time} \PYG{o}{=} \PYG{n}{timestamps}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{n}{timestamps}\PYG{p}{[}\PYG{n}{i} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{]}
+
+    \PYG{k}{if} \PYG{n}{delta\PYGZus{}soc} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{0}\PYG{p}{:}  \PYG{c+c1}{\PYGZsh{} Phase de charge}
+      \PYG{n}{charge\PYGZus{}time} \PYG{o}{+=} \PYG{n}{delta\PYGZus{}time}
+      \PYG{n}{charge\PYGZus{}tensions}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{tensions}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])}
+      \PYG{n}{charge\PYGZus{}currents}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{currents}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])}
+      \PYG{n}{charge\PYGZus{}temperatures}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{temperatures}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])}
+    \PYG{k}{elif} \PYG{n}{delta\PYGZus{}soc} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{0}\PYG{p}{:}  \PYG{c+c1}{\PYGZsh{} Phase de décharge}
+      \PYG{n}{discharge\PYGZus{}time} \PYG{o}{+=} \PYG{n}{delta\PYGZus{}time}
+      \PYG{n}{total\PYGZus{}discharge} \PYG{o}{+=} \PYG{n+nb}{abs}\PYG{p}{(}\PYG{n}{delta\PYGZus{}soc}\PYG{p}{)}
+      \PYG{n}{discharge\PYGZus{}tensions}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{tensions}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])}
+      \PYG{n}{discharge\PYGZus{}currents}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{currents}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])}
+      \PYG{n}{discharge\PYGZus{}temperatures}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{temperatures}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])}
+
+  \PYG{c+c1}{\PYGZsh{} Calculer le nombre total de cycles}
+  \PYG{n}{total\PYGZus{}cycles} \PYG{o}{=} \PYG{n}{total\PYGZus{}discharge} \PYG{o}{/} \PYG{l+m+mi}{100}
+
+  \PYG{c+c1}{\PYGZsh{} Calculer les moyennes des tensions, courants et températures pendant les phases de charge et décharge}
+  \PYG{n}{avg\PYGZus{}v\PYGZus{}charge} \PYG{o}{=} \PYG{n+nb}{sum}\PYG{p}{(}\PYG{n}{charge\PYGZus{}tensions}\PYG{p}{)} \PYG{o}{/} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{charge\PYGZus{}tensions}\PYG{p}{)} \PYG{k}{if} \PYG{n}{charge\PYGZus{}tensions} \PYG{k}{else} \PYG{l+m+mi}{0}
+  \PYG{n}{avg\PYGZus{}v\PYGZus{}discharge} \PYG{o}{=} \PYG{n+nb}{sum}\PYG{p}{(}\PYG{n}{discharge\PYGZus{}tensions}\PYG{p}{)} \PYG{o}{/} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{discharge\PYGZus{}tensions}\PYG{p}{)} \PYG{k}{if} \PYG{n}{discharge\PYGZus{}tensions} \PYG{k}{else} \PYG{l+m+mi}{0}
+  \PYG{n}{avg\PYGZus{}i\PYGZus{}charge} \PYG{o}{=} \PYG{n+nb}{sum}\PYG{p}{(}\PYG{n}{charge\PYGZus{}currents}\PYG{p}{)} \PYG{o}{/} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{charge\PYGZus{}currents}\PYG{p}{)} \PYG{k}{if} \PYG{n}{charge\PYGZus{}currents} \PYG{k}{else} \PYG{l+m+mi}{0}
+  \PYG{n}{avg\PYGZus{}i\PYGZus{}discharge} \PYG{o}{=} \PYG{n+nb}{sum}\PYG{p}{(}\PYG{n}{discharge\PYGZus{}currents}\PYG{p}{)} \PYG{o}{/} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{discharge\PYGZus{}currents}\PYG{p}{)} \PYG{k}{if} \PYG{n}{discharge\PYGZus{}currents} \PYG{k}{else} \PYG{l+m+mi}{0}
+  \PYG{n}{avg\PYGZus{}t\PYGZus{}charge} \PYG{o}{=} \PYG{n+nb}{sum}\PYG{p}{(}\PYG{n}{charge\PYGZus{}temperatures}\PYG{p}{)} \PYG{o}{/} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{charge\PYGZus{}temperatures}\PYG{p}{)} \PYG{k}{if} \PYG{n}{charge\PYGZus{}temperatures} \PYG{k}{else} \PYG{l+m+mi}{0}
+  \PYG{n}{avg\PYGZus{}t\PYGZus{}discharge} \PYG{o}{=} \PYG{n+nb}{sum}\PYG{p}{(}\PYG{n}{discharge\PYGZus{}temperatures}\PYG{p}{)} \PYG{o}{/} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{discharge\PYGZus{}temperatures}\PYG{p}{)} \PYG{k}{if} \PYG{n}{discharge\PYGZus{}temperatures} \PYG{k}{else} \PYG{l+m+mi}{0}
+
+  \PYG{c+c1}{\PYGZsh{} Trouver les valeurs maximales et minimales de tension pendant les phases de charge et décharge}
+  \PYG{n}{max\PYGZus{}v\PYGZus{}discharge} \PYG{o}{=} \PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{discharge\PYGZus{}tensions}\PYG{p}{)} \PYG{k}{if} \PYG{n}{discharge\PYGZus{}tensions} \PYG{k}{else} \PYG{l+m+mi}{0}
+  \PYG{n}{min\PYGZus{}v\PYGZus{}charge} \PYG{o}{=} \PYG{n+nb}{min}\PYG{p}{(}\PYG{n}{charge\PYGZus{}tensions}\PYG{p}{)} \PYG{k}{if} \PYG{n}{charge\PYGZus{}tensions} \PYG{k}{else} \PYG{l+m+mi}{0}
+  	
+  \PYG{c+c1}{\PYGZsh{} Convertir le temps de décharge en heures}
+  \PYG{n}{discharge\PYGZus{}time\PYGZus{}h} \PYG{o}{=} \PYG{n}{discharge\PYGZus{}time} \PYG{o}{/} \PYG{l+m+mi}{3600}
+  \PYG{n}{capacity\PYGZus{}discharged} \PYG{o}{=} \PYG{n}{avg\PYGZus{}i\PYGZus{}discharge} \PYG{o}{*} \PYG{n}{discharge\PYGZus{}time\PYGZus{}h}
+
+  \PYG{c+c1}{\PYGZsh{} Calculer le State of Health (SOH)}
+  \PYG{n}{soh} \PYG{o}{=} \PYG{p}{(}\PYG{n}{capacity\PYGZus{}discharged} \PYG{o}{/} \PYG{p}{(}\PYG{n}{capacity\PYGZus{}nominal} \PYG{o}{*} \PYG{n}{total\PYGZus{}cycles}\PYG{p}{))} \PYG{o}{*} \PYG{l+m+mi}{100} \PYG{k}{if} \PYG{n}{capacity\PYGZus{}nominal} \PYG{o+ow}{and} \PYG{n}{total\PYGZus{}cycles} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{0} \PYG{k}{else} \PYG{l+m+mi}{0}
+
+  \PYG{c+c1}{\PYGZsh{} Calculer le Remaining Useful Life (RUL)}
+  \PYG{n}{rul} \PYG{o}{=} \PYG{p}{(}\PYG{n}{life\PYGZus{}cycle\PYGZus{}nominal} \PYG{o}{*} \PYG{n}{soh} \PYG{o}{/} \PYG{l+m+mi}{100}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n}{total\PYGZus{}cycles} \PYG{k}{if} \PYG{n}{total\PYGZus{}cycles} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{0} \PYG{k}{else} \PYG{n}{life\PYGZus{}cycle\PYGZus{}nominal}
+
+  \PYG{c+c1}{\PYGZsh{} Créer un DataFrame de résumé avec les résultats calculés}
+  \PYG{n}{summary\PYGZus{}df} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{DataFrame}\PYG{p}{(\PYGZob{}}
+  	\PYG{l+s+s1}{\PYGZsq{}Cycles\PYGZsq{}}\PYG{p}{:} \PYG{p}{[}\PYG{n}{total\PYGZus{}cycles}\PYG{p}{],}
+  	\PYG{l+s+s1}{\PYGZsq{}T\PYGZus{}charge (s)\PYGZsq{}}\PYG{p}{:} \PYG{p}{[}\PYG{n}{charge\PYGZus{}time}\PYG{p}{],}
+  	\PYG{l+s+s1}{\PYGZsq{}T\PYGZus{}discharge (s)\PYGZsq{}}\PYG{p}{:} \PYG{p}{[}\PYG{n}{discharge\PYGZus{}time}\PYG{p}{],}
+  	\PYG{l+s+s1}{\PYGZsq{}V\PYGZus{}charge (V)\PYGZsq{}}\PYG{p}{:} \PYG{p}{[}\PYG{n}{avg\PYGZus{}v\PYGZus{}charge}\PYG{p}{],}
+  	\PYG{l+s+s1}{\PYGZsq{}V\PYGZus{}discharge (V)\PYGZsq{}}\PYG{p}{:} \PYG{p}{[}\PYG{n}{avg\PYGZus{}v\PYGZus{}discharge}\PYG{p}{],}
+  	\PYG{l+s+s1}{\PYGZsq{}V\PYGZus{}max\PYGZus{}dis (V)\PYGZsq{}}\PYG{p}{:} \PYG{p}{[}\PYG{n}{max\PYGZus{}v\PYGZus{}discharge}\PYG{p}{],}
+  	\PYG{l+s+s1}{\PYGZsq{}V\PYGZus{}min\PYGZus{}chg (V)\PYGZsq{}}\PYG{p}{:} \PYG{p}{[}\PYG{n}{min\PYGZus{}v\PYGZus{}charge}\PYG{p}{],}
+  	\PYG{l+s+s1}{\PYGZsq{}I\PYGZus{}charge (A)\PYGZsq{}}\PYG{p}{:} \PYG{p}{[}\PYG{n}{avg\PYGZus{}i\PYGZus{}charge}\PYG{p}{],}
+  	\PYG{l+s+s1}{\PYGZsq{}I\PYGZus{}discharge (A)\PYGZsq{}}\PYG{p}{:} \PYG{p}{[}\PYG{n}{avg\PYGZus{}i\PYGZus{}discharge}\PYG{p}{],}
+  	\PYG{l+s+s1}{\PYGZsq{}T°C\PYGZus{}charge\PYGZsq{}}\PYG{p}{:} \PYG{p}{[}\PYG{n}{avg\PYGZus{}t\PYGZus{}charge}\PYG{p}{],}
+  	\PYG{l+s+s1}{\PYGZsq{}T°C\PYGZus{}discharge\PYGZsq{}}\PYG{p}{:} \PYG{p}{[}\PYG{n}{avg\PYGZus{}t\PYGZus{}discharge}\PYG{p}{],}
+  	\PYG{l+s+s1}{\PYGZsq{}SOH (\PYGZpc{})\PYGZsq{}}\PYG{p}{:} \PYG{p}{[}\PYG{n}{soh}\PYG{p}{],}
+  	\PYG{l+s+s1}{\PYGZsq{}RUL (cycles)\PYGZsq{}}\PYG{p}{:} \PYG{p}{[}\PYG{n}{rul}\PYG{p}{]}
+  \PYG{p}{\PYGZcb{})}
+  \PYG{k}{return} \PYG{n}{summary\PYGZus{}df}
+\end{Verbatim}

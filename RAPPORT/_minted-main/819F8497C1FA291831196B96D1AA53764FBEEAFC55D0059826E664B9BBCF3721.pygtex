@@ -1,0 +1,65 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+   \PYG{c+c1}{\PYGZsh{} Entraînement et évaluation des modèles}
+   \PYG{c+c1}{\PYGZsh{} Liste pour stocker les résultats de performance des modèles}
+   \PYG{n}{results} \PYG{o}{=} \PYG{p}{[]}
+
+   \PYG{c+c1}{\PYGZsh{} Parcours de chaque modèle défini dans le dictionnaire \PYGZdq{}models\PYGZdq{}}
+   \PYG{k}{for} \PYG{n}{name}\PYG{p}{,} \PYG{n}{model} \PYG{o+ow}{in} \PYG{n}{models}\PYG{o}{.}\PYG{n}{items}\PYG{p}{():}
+     \PYG{c+c1}{\PYGZsh{} \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+     \PYG{c+c1}{\PYGZsh{} Entraînement et évaluation pour RUL (Remaining Useful Life)}
+     \PYG{c+c1}{\PYGZsh{} \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+
+     \PYG{n}{model}\PYG{o}{.}\PYG{n}{fit}\PYG{p}{(}\PYG{n}{x\PYGZus{}train}\PYG{p}{,} \PYG{n}{y\PYGZus{}train\PYGZus{}rul}\PYG{p}{)}
+
+     \PYG{c+c1}{\PYGZsh{} Prédictions sur les ensembles d\PYGZsq{}entraînement et de test}
+     \PYG{n}{y\PYGZus{}pred\PYGZus{}train\PYGZus{}rul} \PYG{o}{=} \PYG{n}{model}\PYG{o}{.}\PYG{n}{predict}\PYG{p}{(}\PYG{n}{x\PYGZus{}train}\PYG{p}{)}
+     \PYG{n}{y\PYGZus{}pred\PYGZus{}test\PYGZus{}rul} \PYG{o}{=} \PYG{n}{model}\PYG{o}{.}\PYG{n}{predict}\PYG{p}{(}\PYG{n}{x\PYGZus{}test}\PYG{p}{)}
+
+     \PYG{c+c1}{\PYGZsh{} Calcul des métriques de performance pour RUL}
+     \PYG{n}{metrics\PYGZus{}rul} \PYG{o}{=} \PYG{n}{calculate\PYGZus{}metrics}\PYG{p}{(}\PYG{n}{y\PYGZus{}train\PYGZus{}rul}\PYG{p}{,} \PYG{n}{y\PYGZus{}test\PYGZus{}rul}\PYG{p}{,} \PYG{n}{y\PYGZus{}pred\PYGZus{}train\PYGZus{}rul}\PYG{p}{,} \PYG{n}{y\PYGZus{}pred\PYGZus{}test\PYGZus{}rul}\PYG{p}{)}
+
+     \PYG{c+c1}{\PYGZsh{} Ajout d\PYGZsq{}informations sur le modèle et la cible dans les résultats}
+     \PYG{n}{metrics\PYGZus{}rul}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}Model\PYGZsq{}}\PYG{p}{]} \PYG{o}{=} \PYG{n}{name}
+     \PYG{n}{metrics\PYGZus{}rul}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}Target\PYGZsq{}}\PYG{p}{]} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}RUL (cycles)\PYGZsq{}}
+
+     \PYG{c+c1}{\PYGZsh{} Validation croisée pour évaluer la robustesse du modèle}
+     \PYG{n}{metrics\PYGZus{}rul}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}CrossVal R2\PYGZsq{}}\PYG{p}{]} \PYG{o}{=} \PYG{n}{cross\PYGZus{}val\PYGZus{}score\PYGZus{}model}\PYG{p}{(}\PYG{n}{model}\PYG{p}{,} \PYG{n}{x}\PYG{p}{,} \PYG{n}{y\PYGZus{}rul}\PYG{p}{)}
+
+     \PYG{c+c1}{\PYGZsh{} Stockage des résultats pour RUL}
+     \PYG{n}{results}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{metrics\PYGZus{}rul}\PYG{p}{)}
+
+     \PYG{c+c1}{\PYGZsh{} Enregistrement du modèle entraîné pour RUL}
+     \PYG{n}{joblib}\PYG{o}{.}\PYG{n}{dump}\PYG{p}{(}\PYG{n}{model}\PYG{p}{,} \PYG{l+s+sa}{f}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{name}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{\PYGZus{}rul\PYGZus{}model.pkl\PYGZsq{}}\PYG{p}{)}
+
+     \PYG{c+c1}{\PYGZsh{} \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+     \PYG{c+c1}{\PYGZsh{} Entraînement et évaluation pour SoH (State of Health)}
+     \PYG{c+c1}{\PYGZsh{} \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+
+	 \PYG{n}{model}\PYG{o}{.}\PYG{n}{fit}\PYG{p}{(}\PYG{n}{x\PYGZus{}train}\PYG{p}{,} \PYG{n}{y\PYGZus{}train\PYGZus{}soh}\PYG{p}{)}
+	
+     \PYG{c+c1}{\PYGZsh{} Prédictions sur les ensembles d\PYGZsq{}entraînement et de test}
+     \PYG{n}{y\PYGZus{}pred\PYGZus{}train\PYGZus{}soh} \PYG{o}{=} \PYG{n}{model}\PYG{o}{.}\PYG{n}{predict}\PYG{p}{(}\PYG{n}{x\PYGZus{}train}\PYG{p}{)}
+     \PYG{n}{y\PYGZus{}pred\PYGZus{}test\PYGZus{}soh} \PYG{o}{=} \PYG{n}{model}\PYG{o}{.}\PYG{n}{predict}\PYG{p}{(}\PYG{n}{x\PYGZus{}test}\PYG{p}{)}
+
+     \PYG{c+c1}{\PYGZsh{} Calcul des métriques de performance pour SoH}
+     \PYG{n}{metrics\PYGZus{}soh} \PYG{o}{=} \PYG{n}{calculate\PYGZus{}metrics}\PYG{p}{(}\PYG{n}{y\PYGZus{}train\PYGZus{}soh}\PYG{p}{,} \PYG{n}{y\PYGZus{}test\PYGZus{}soh}\PYG{p}{,} \PYG{n}{y\PYGZus{}pred\PYGZus{}train\PYGZus{}soh}\PYG{p}{,} \PYG{n}{y\PYGZus{}pred\PYGZus{}test\PYGZus{}soh}\PYG{p}{)}
+
+     \PYG{c+c1}{\PYGZsh{} Ajout d\PYGZsq{}informations sur le modèle et la cible dans les résultats}
+     \PYG{n}{metrics\PYGZus{}soh}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}Model\PYGZsq{}}\PYG{p}{]} \PYG{o}{=} \PYG{n}{name}
+     \PYG{n}{metrics\PYGZus{}soh}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}Target\PYGZsq{}}\PYG{p}{]} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}SOH (\PYGZpc{})\PYGZsq{}}
+
+     \PYG{c+c1}{\PYGZsh{} Validation croisée pour évaluer la robustesse du modèle}
+     \PYG{n}{metrics\PYGZus{}soh}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}CrossVal R2\PYGZsq{}}\PYG{p}{]} \PYG{o}{=} \PYG{n}{cross\PYGZus{}val\PYGZus{}score\PYGZus{}model}\PYG{p}{(}\PYG{n}{model}\PYG{p}{,} \PYG{n}{x}\PYG{p}{,} \PYG{n}{y\PYGZus{}soh}\PYG{p}{)}
+
+     \PYG{c+c1}{\PYGZsh{} Stockage des résultats pour SoH}
+     \PYG{n}{results}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{metrics\PYGZus{}soh}\PYG{p}{)}
+
+     \PYG{c+c1}{\PYGZsh{} Enregistrement du modèle entraîné pour SoH}
+     \PYG{n}{joblib}\PYG{o}{.}\PYG{n}{dump}\PYG{p}{(}\PYG{n}{model}\PYG{p}{,} \PYG{l+s+sa}{f}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{name}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{\PYGZus{}soh\PYGZus{}model.pkl\PYGZsq{}}\PYG{p}{)}
+
+   \PYG{c+c1}{\PYGZsh{} Conversion des résultats en DataFrame pour une meilleure visualisation}
+   \PYG{n}{results\PYGZus{}df} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{DataFrame}\PYG{p}{(}\PYG{n}{results}\PYG{p}{)}
+	
+   \PYG{c+c1}{\PYGZsh{} Affichage des résultats des modèles}
+   \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Résultats des modèles :}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{results\PYGZus{}df}\PYG{p}{)}
+\end{Verbatim}

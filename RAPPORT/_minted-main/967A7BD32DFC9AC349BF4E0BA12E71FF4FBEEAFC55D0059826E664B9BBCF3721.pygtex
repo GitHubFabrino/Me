@@ -1,0 +1,19 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PYG{c+c1}{\PYGZsh{} Préparation des données pour l\PYGZsq{}entraînement et la normalisation}
+  \PYG{c+c1}{\PYGZsh{} Séparation des variables cibles (RUL et SOH)}
+  \PYG{n}{y\PYGZus{}rul} \PYG{o}{=} \PYG{n}{df}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}RUL (cycles)\PYGZsq{}}\PYG{p}{]}
+  \PYG{n}{y\PYGZus{}soh} \PYG{o}{=} \PYG{n}{df}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}SOH (\PYGZpc{})\PYGZsq{}}\PYG{p}{]}
+
+  \PYG{c+c1}{\PYGZsh{} Suppression des colonnes cibles du jeu de données pour obtenir}
+   \PYG{n}{les} \PYG{n}{entrées} \PYG{p}{(}\PYG{n}{features}\PYG{p}{)}
+  \PYG{n}{x} \PYG{o}{=} \PYG{n}{df}\PYG{o}{.}\PYG{n}{drop}\PYG{p}{(}\PYG{n}{columns}\PYG{o}{=}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}RUL (cycles)\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}SOH (\PYGZpc{})\PYGZsq{}}\PYG{p}{],} \PYG{n}{axis}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{)}
+
+  \PYG{c+c1}{\PYGZsh{} Division des données en ensembles d\PYGZsq{}entraînement et de test (80\PYGZpc{} entraînement, 20\PYGZpc{} test)}
+  \PYG{n}{x\PYGZus{}train}\PYG{p}{,} \PYG{n}{x\PYGZus{}test}\PYG{p}{,} \PYG{n}{y\PYGZus{}train\PYGZus{}rul}\PYG{p}{,} \PYG{n}{y\PYGZus{}test\PYGZus{}rul} \PYG{o}{=} \PYG{n}{train\PYGZus{}test\PYGZus{}split}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{y\PYGZus{}rul}\PYG{p}{,} \PYG{n}{test\PYGZus{}size}\PYG{o}{=}\PYG{l+m+mf}{0.20}\PYG{p}{,} \PYG{n}{random\PYGZus{}state}\PYG{o}{=}\PYG{l+m+mi}{42}\PYG{p}{)}
+  \PYG{n}{\PYGZus{}}\PYG{p}{,} \PYG{n}{\PYGZus{}}\PYG{p}{,} \PYG{n}{y\PYGZus{}train\PYGZus{}soh}\PYG{p}{,} \PYG{n}{y\PYGZus{}test\PYGZus{}soh} \PYG{o}{=} \PYG{n}{train\PYGZus{}test\PYGZus{}split}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{y\PYGZus{}soh}\PYG{p}{,} \PYG{n}{test\PYGZus{}size}\PYG{o}{=}\PYG{l+m+mf}{0.20}\PYG{p}{,} \PYG{n}{random\PYGZus{}state}\PYG{o}{=}\PYG{l+m+mi}{42}\PYG{p}{)}
+
+  \PYG{c+c1}{\PYGZsh{} Normalisation des données pour améliorer la performance des modèles}
+  \PYG{n}{scaler} \PYG{o}{=} \PYG{n}{StandardScaler}\PYG{p}{()}
+  \PYG{n}{x\PYGZus{}train} \PYG{o}{=} \PYG{n}{scaler}\PYG{o}{.}\PYG{n}{fit\PYGZus{}transform}\PYG{p}{(}\PYG{n}{x\PYGZus{}train}\PYG{p}{)}
+  \PYG{n}{x\PYGZus{}test} \PYG{o}{=} \PYG{n}{scaler}\PYG{o}{.}\PYG{n}{transform}\PYG{p}{(}\PYG{n}{x\PYGZus{}test}\PYG{p}{)}
+\end{Verbatim}

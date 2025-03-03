@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+   \PYG{c+c1}{\PYGZsh{} Fonction de calcul des métriques d\PYGZsq{}évaluation}
+   \PYG{k}{def} \PYG{n+nf}{calculate\PYGZus{}metrics}\PYG{p}{(}\PYG{n}{y\PYGZus{}train}\PYG{p}{,} \PYG{n}{y\PYGZus{}test}\PYG{p}{,} \PYG{n}{y\PYGZus{}pred\PYGZus{}train}\PYG{p}{,} \PYG{n}{y\PYGZus{}pred\PYGZus{}test}\PYG{p}{):}
+     \PYG{k}{return} \PYG{p}{\PYGZob{}}
+     	\PYG{l+s+s1}{\PYGZsq{}MAE Train\PYGZsq{}}\PYG{p}{:} \PYG{n}{mean\PYGZus{}absolute\PYGZus{}error}\PYG{p}{(}\PYG{n}{y\PYGZus{}train}\PYG{p}{,} \PYG{n}{y\PYGZus{}pred\PYGZus{}train}\PYG{p}{),}
+     	\PYG{l+s+s1}{\PYGZsq{}MSE Train\PYGZsq{}}\PYG{p}{:} \PYG{n}{mean\PYGZus{}squared\PYGZus{}error}\PYG{p}{(}\PYG{n}{y\PYGZus{}train}\PYG{p}{,} \PYG{n}{y\PYGZus{}pred\PYGZus{}train}\PYG{p}{),}
+     	\PYG{l+s+s1}{\PYGZsq{}R2 Train\PYGZsq{}}\PYG{p}{:} \PYG{n}{r2\PYGZus{}score}\PYG{p}{(}\PYG{n}{y\PYGZus{}train}\PYG{p}{,} \PYG{n}{y\PYGZus{}pred\PYGZus{}train}\PYG{p}{),}
+     	\PYG{l+s+s1}{\PYGZsq{}MAE Test\PYGZsq{}}\PYG{p}{:} \PYG{n}{mean\PYGZus{}absolute\PYGZus{}error}\PYG{p}{(}\PYG{n}{y\PYGZus{}test}\PYG{p}{,} \PYG{n}{y\PYGZus{}pred\PYGZus{}test}\PYG{p}{),}
+     	\PYG{l+s+s1}{\PYGZsq{}MSE Test\PYGZsq{}}\PYG{p}{:} \PYG{n}{mean\PYGZus{}squared\PYGZus{}error}\PYG{p}{(}\PYG{n}{y\PYGZus{}test}\PYG{p}{,} \PYG{n}{y\PYGZus{}pred\PYGZus{}test}\PYG{p}{),}
+     	\PYG{l+s+s1}{\PYGZsq{}R2 Test\PYGZsq{}}\PYG{p}{:} \PYG{n}{r2\PYGZus{}score}\PYG{p}{(}\PYG{n}{y\PYGZus{}test}\PYG{p}{,} \PYG{n}{y\PYGZus{}pred\PYGZus{}test}\PYG{p}{)}
+   \PYG{p}{\PYGZcb{}}
+\end{Verbatim}

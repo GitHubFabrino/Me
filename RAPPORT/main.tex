@@ -1,0 +1,192 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[left=2.7cm,right=1.8cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage[french]{babel}
+\usepackage{tabularx}
+\usepackage{acronym}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{color}
+\usepackage{natbib}
+\usepackage[colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref}
+\usepackage{tocbibind}
+\usepackage{multicol}
+\usepackage{array}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{textcomp}
+\usepackage{microtype}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{pdflscape}
+\hypersetup{
+	colorlinks=false,
+	hidelinks,
+	bookmarks=true,
+	pdfpagemode=FullScreen,
+}
+\usepackage[acronym]{glossaries}
+
+\usepackage{longtable}
+
+\usepackage{cellspace}
+\setlength{\cellspacetoplimit}{2mm}
+\setlength{\cellspacebottomlimit}{2mm}
+\usepackage{subcaption} 
+
+\DeclareUnicodeCharacter{2248}{\textapprox}
+
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+\newlist{filleditem}{itemize}{1}
+\setlist[filleditem,1]{label=\textbullet, labelsep=0.5em}
+\usepackage{newunicodechar}
+
+\newunicodechar{ρ}{\rho}
+\newunicodechar{θ}{\theta}
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstdefinestyle{sqlStyle}{
+	language=SQL,
+	backgroundcolor=\color{white},
+	basicstyle=\footnotesize,
+	keywordstyle=\color{blue},
+	commentstyle=\color{green},
+	stringstyle=\color{red},
+	showstringspaces=false,
+	numbers=left,
+	numberstyle=\tiny,
+	stepnumber=1,
+	numbersep=5pt,
+	tabsize=2,
+}
+
+\lstset{style=sqlStyle}
+\lstset{
+	language=C++,
+	basicstyle=\ttfamily\small,
+	keywordstyle=\color{blue}\bfseries,
+	commentstyle=\color{green!50!black},
+	stringstyle=\color{red},
+	numbers=left,
+	numberstyle=\tiny\color{gray},
+	stepnumber=1,
+	numbersep=10pt,
+	backgroundcolor=\color{yellow!10},
+	showspaces=false,
+	showstringspaces=false,
+	breaklines=true,
+	frame=single,
+	captionpos=b
+}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{minted}
+
+\begin{document}
+	\include{contenu/couverture}
+	
+	\newpage
+	\null
+	\thispagestyle{empty}
+	\newpage
+	\include{contenu/couverture2}
+	\pagenumbering{roman}
+	
+	\cleardoublepage
+	\include{contenu/remerciements}
+	
+	\cleardoublepage
+	%\include{contenu/publication}
+	
+	\cleardoublepage
+	\include{contenu/cahierDesCharges}
+	\cleardoublepage
+	\include{contenu/resume}
+	
+	\cleardoublepage
+	\include{contenu/abstract}
+	
+\pagestyle{fancy}
+\fancyhf{} 
+\fancyhead[L]{\nouppercase{\leftmark}}
+%\fancyfoot[C]{\thepage}
+
+	\fancyfoot[L]{\scriptsize\itshape STIC}
+	\fancyfoot[R]{\thepage}
+	\renewcommand{\footrulewidth}{0.4pt}
+	\cleardoublepage
+	\tableofcontents
+	
+	\cleardoublepage
+	\renewcommand{\listfigurename}{Liste des figures}
+	\listoffigures
+	
+	\cleardoublepage
+	\renewcommand{\listtablename}{Liste des tableaux}
+	\renewcommand{\tablename}{Tableau}
+	\listoftables
+	
+	\cleardoublepage
+	\fancyhead[L]{Liste des symboles et acronymes}
+	\include{contenu/listes_des_abreviations}
+	
+	\pagenumbering{arabic}
+	
+	\cleardoublepage
+	% Ajuster l'en-tête pour l'introduction
+	\fancyhead[L]{Introduction générale}
+	\include{contenu/introduction}
+	
+	
+	% Réinitialiser l'en-tête pour les chapitres suivants
+	\fancyhead[L]{\nouppercase{\leftmark}}
+	
+	\cleardoublepage
+	%\include{contenu/chap1}
+	\include{contenu/chapitre1}
+	%\include{contenu/introduction}
+	\cleardoublepage
+	%\include{contenu/chap2}
+	\include{contenu/principeDeFonctionnement}
+	%\include{contenu/principeDeFonctioCopi}
+	\cleardoublepage
+	\include{contenu/chap3}
+	
+	\cleardoublepage
+	\include{contenu/chap4}
+	
+	\cleardoublepage
+	\include{contenu/chap5}
+	
+	\cleardoublepage
+	\include{contenu/chap6}
+	
+	\cleardoublepage
+	\include{contenu/conclusion}
+	
+	
+	
+	\pagenumbering{roman}
+	\cleardoublepage
+	\renewcommand{\bibname}{Bibliographie}
+	\bibliographystyle{unsrt}
+	\bibliography{references}
+	\include{./webographies}
+	
+	\cleardoublepage
+	\fancyhead[L]{Annexe}
+	\include{contenu/annexes}
+	
+	
+\end{document}

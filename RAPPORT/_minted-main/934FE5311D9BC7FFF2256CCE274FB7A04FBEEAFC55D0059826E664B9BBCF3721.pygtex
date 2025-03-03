@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+   \PYG{c+c1}{\PYGZsh{} Définition d\PYGZsq{}un dictionnaire contenant différents modèles de régression}
+
+   \PYG{n}{models} \PYG{o}{=} \PYG{p}{\PYGZob{}}
+   	\PYG{c+c1}{\PYGZsh{} Régression linéaire simple}
+   	\PYG{l+s+s2}{\PYGZdq{}Linear Regression\PYGZdq{}}\PYG{p}{:} \PYG{n}{LinearRegression}\PYG{p}{(),}
+   	\PYG{c+c1}{\PYGZsh{} Régression Ridge avec régularisation}
+   	\PYG{l+s+s2}{\PYGZdq{}Ridge Regression\PYGZdq{}}\PYG{p}{:} \PYG{n}{Ridge}\PYG{p}{(}\PYG{n}{alpha}\PYG{o}{=}\PYG{l+m+mf}{0.1}\PYG{p}{,} \PYG{n}{random\PYGZus{}state}\PYG{o}{=}\PYG{l+m+mi}{42}\PYG{p}{),}
+   	 \PYG{c+c1}{\PYGZsh{} Régression Lasso avec régularisation}
+   	\PYG{l+s+s2}{\PYGZdq{}Lasso Regression\PYGZdq{}}\PYG{p}{:} \PYG{n}{Lasso}\PYG{p}{(}\PYG{n}{alpha}\PYG{o}{=}\PYG{l+m+mf}{0.001}\PYG{p}{,} \PYG{n}{random\PYGZus{}state}\PYG{o}{=}\PYG{l+m+mi}{42}\PYG{p}{)}
+   	\PYG{c+c1}{\PYGZsh{} Modèle Random Forest optimisé}
+   	\PYG{l+s+s2}{\PYGZdq{}Random Forest (Optimized)\PYGZdq{}}\PYG{p}{:} \PYG{n}{best\PYGZus{}rf}\PYG{p}{,}
+   	\PYG{c+c1}{\PYGZsh{} Régression par plus proches voisins (KNN)}
+   	\PYG{l+s+s2}{\PYGZdq{}K\PYGZhy{}Nearest Neighbors\PYGZdq{}}\PYG{p}{:} \PYG{n}{KNeighborsRegressor}\PYG{p}{(),}
+   	\PYG{c+c1}{\PYGZsh{} Régression par réseau de neurones artificiels (MLP)}
+   	\PYG{l+s+s2}{\PYGZdq{}ANN Regression\PYGZdq{}}\PYG{p}{:} \PYG{n}{MLPRegressor}\PYG{p}{(}\PYG{n}{hidden\PYGZus{}layer\PYGZus{}sizes}\PYG{o}{=}\PYG{p}{(}\PYG{l+m+mi}{256}\PYG{p}{,),} \PYG{n}{max\PYGZus{}iter}\PYG{o}{=}\PYG{l+m+mi}{1000}\PYG{p}{,} \PYG{n}{random\PYGZus{}state}\PYG{o}{=}\PYG{l+m+mi}{42}\PYG{p}{)}
+   \PYG{p}{\PYGZcb{}}
+\end{Verbatim}

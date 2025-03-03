@@ -1,0 +1,742 @@
+\chapter{Étude de la partie matérielle de la surveillance de la montagne d’Ambre}
+\section{Introduction}
+Suite à une enquête sur le terrain, la déforestation se révèle être le résultat d'une coupe illégale des arbres. En comparaison avec les méthodes actuellement utilisées sur la montagne d'Ambre et celles présentées dans le premier chapitre, la constatation de la déforestation survient après que l'arbre a été coupé. Dans notre contexte, les résultats de l'enquête indiquent que la coupe se fait à l'aide d'une hache, nous permettant ainsi de détecter le son émis pendant la découpe. Cette approche nous permet d'identifier l'infraction dès le début de la coupe, plutôt qu'après la chute de l'arbre. En cohérence avec nos objectifs précédents, nous privilégions l'utilisation d'un système électronique de capteurs au sol décrit par la figure suivante :
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=15cm]{./img/6.png}
+	\caption{Vue d'ensemble du système de surveillance}
+\end{figure}
+
+Le système de surveillance proposé se compose de cinq composants principaux : une unité de capture, une unité de traitement, un système d’alarme locale, un module de communication et une station centrale. L'unité de capture détecte les bruits environnementaux, notamment ceux liés à la découpe d'arbres, et envoie les signaux à l'unité de traitement. Celle-ci utilise un algorithme d'intelligence artificielle pour classifier les sons et identifier une éventuelle découpe d'arbres. En cas de détection, elle envoie une alerte via le module de communication à la station centrale pour une analyse et une prise de décision rapide. Simultanément, une alarme locale est déclenchée pour dissuader l'intrus et faciliter sa localisation immédiate. 
+Dans cette section de l'étude, nous mettrons particulièrement l'accent sur le matériel afin d'identifier les solutions les mieux adaptées au site et à ses contraintes. Nous cherchons à concevoir un modèle électronique de surveillance en temps réel et continue. Cette capacité permettra une détection précoce, déclenchant une réponse immédiate des parties prenantes ou, au minimum, dissuadant les contrevenants. Parallèlement, nous nous efforçons de minimiser la consommation d'énergie et d'identifier les composants répondant à cette exigence \cite{57}.
+Pour ce faire, nous commencerons par étudier le système électronique approprié pour une surveillance forestière locale, réaliser le bilan énergétique du système et optimiser sa consommation. Notre approche repose sur l'optimisation du temps d'activation du système tout en garantissant une surveillance efficace. Ensuite, une analyse de la capacité énergétique de la zone forestière sera entreprise pour déterminer le dimensionnement optimal du système pour l'approvisionnement en énergie.
+
+\section{Partie électronique du système de surveillance forestière}
+\subsection{Description du principe de fonctionnement du système}
+\subsubsection{Description du système matériel pour une surveillance locale}
+Du point de vue matériel, lors de la surveillance, le son est capturé par un capteur sonore qui est le microphone. Cela est suivi de la conversion du son en données exploitables par un microcontrôleur via une carte son \cite{58}. Ensuite, le signal sonore est enregistré et analysé pour détecter la découpe d’arbre à la hache. 
+\\
+En cas de détection, une sirène se déclenche pour dissuader la personne effectuant la découpe d'arbre et aider à sa localisation. Simultanément, une alerte est envoyée à une station centrale pour permettre une intervention rapide des gestionnaires du parc.
+Le schéma bloc du système est illustré dans la Figure \ref{i7} :
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=15cm]{./img/7.png}
+	\caption{Composants matériels du système de surveillance}
+	\label{i7}
+\end{figure}
+
+\subsubsection{Algorithme de la détection sonore pour la surveillance}
+Lors du monitoring, le système capture le son puis le découpe en 5 secondes. Durant ce temps, une identification de son de coup de hache est réalisée. En cas de détection positive, une confirmation est effectuée en procédant à une seconde identification. Dans le cas contraire, le système se réinitialise.
+Cette étape d'identification est répétée trois fois successivement, soit pendant une durée de 15 secondes. Alors, si la coupe est confirmée, l'alarme se déclenche pendant 10 minutes, équivalent à un temps estimatif d'arrivée d'un garde forestier. 
+\\
+L'algorithme présenté dans la figure suivante résume cette étape de détection :
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=15cm]{./img/8.png}
+	\caption{Algorithme de déclenchement d'alarme locale}
+\end{figure}
+
+\subsubsection{Etude et gestion de l'utilisation du système avec prise en compte du contexte de la situation actuelle.}
+D'après nos enquêtes auprès des villageois et de l'Association MNP, les arbres sont abattus pour faire du charbon de bois ou pour la menuiserie. Les arbres ciblés sont de grande taille, d'un diamètre supérieur à 30 cm et d'une longueur supérieure à 3 mètres. La découpe se fait en tranches de haut en bas, ce qui prend plus de 30 minutes. Pour surveiller cela, nous recommandons de vérifier toutes les dix minutes afin de ne pas attendre la chute de l'arbre.
+\\
+
+Les violations potentielles se produisent pendant la journée lorsque le soleil brille c’est-à-dire de l'aube au coucher du soleil. Dans la zone de surveillance, le soleil se lève vers 6h du matin et se couche vers 18 h durant toute l'année. En prenant une marge de deux heures de temps avant le lever du soleil et son couché, nous nous sommes fixés à une surveillance allant de 4h du matin à 20h du soir. Ainsi, on effectue une surveillance de 16/24h en une journée.
+
+\subsection{Efficacité renforcée de la surveillance par la combinaison « Microphone - Microcontrôleur »}
+La détection sonore se positionne comme un instrument robuste dans la lutte contre la déforestation, et l'utilisation stratégique d'une combinaison de microphone et de microcontrôleur élargit les possibilités de surveillance dans les zones forestières.
+
+\subsubsection{Avantage en termes de précision}
+L'alliance d'un microphone conçu pour la détection sonore avec un microcontrôleur présente efficacité de surveillance en termes de précision. Ces microphones ont la capacité de capturer des sons spécifiques liés à la déforestation, comme le bruit caractéristique des tronçonneuses ou le craquement des branches sous la pression humaine \cite{59},\cite{60}. Cette synergie avec les microcontrôleurs permet une surveillance plus focalisée, facilitant une détection rapide et précise des activités illégales de déforestation. Ainsi, cette combinaison offre une réactivité accrue pour contrer efficacement les pratiques non durables et contribuer à la préservation des écosystèmes forestiers \cite{61}.
+
+\subsubsection{Capacité d'analyse en temps réel}
+Les microcontrôleurs occupent un rôle central dans l'analyse en temps réel des données sonores captées par les microphones. La détection en temps réel à l'aide d'un capteur de détection acoustique sans fil a été conséquente dans un projet d’agriculture durable et intelligent. Grâce à une programmation sophistiquée, cette combinaison permet le traitement instantané des informations sur site environnementaux, déclenchant des alertes précoces en cas d'activités suspectes \cite{62}. Cette capacité d'analyse en temps réel offre aux autorités la possibilité d'intervenir rapidement, limitant ainsi les dommages environnementaux. La réactivité des systèmes de surveillance, grâce aux microcontrôleurs, pourrait être exploité pour renforcer considérablement leur efficacité dans la lutte contre la déforestation \cite{63}.
+
+\subsubsection{Réduction de la consommation énergétique}
+Une dimension de cette combinaison réside dans la réduction de la consommation énergétique. Les microcontrôleurs, par leur nature économe en énergie, peuvent être alimentés par des sources durables. Cette autonomie énergétique assure un fonctionnement continu des dispositifs de surveillance, éliminant la nécessité de dépendre de sources d'alimentation traditionnelles. Ainsi, la combinaison microphone-microcontrôleur offre une solution durable pour la surveillance à long terme des zones forestières \cite{64}.
+
+\subsection{Etalage des systèmes électroniques pour le choix des composants}
+
+\subsubsection{La chaine d’instrumentation de traitement sonore}
+La conception d'une unité de capture pour un système de surveillance par capteurs au sol revêt une importance concluante, étant chargée de convertir le son ambiant en un signal électrique exploitable. 
+Le choix de l'unité de capture pour un système de surveillance dépend de plusieurs facteurs, notamment les conditions acoustiques, la présence de bruit ambiant et la portée du système\cite{65}. Ces paramètres sont également influencés par l'efficacité attendue du système, ce qui détermine le type de transducteur et les paramètres de traitement analogique à mettre en œuvre.
+Voici une présentation de plusieurs types de microphone courant en surveillance environnementale terrestre :
+
+\begin{table}[H]
+	\centering
+	\caption{Types de microphones et leurs applications}
+	\vspace{5mm}
+	\begin{tabular}[c]{|>{\centering\arraybackslash}p{2.5cm}|>{\centering\arraybackslash}p{3cm}|>{\centering\arraybackslash}p{4cm}|>{\centering\arraybackslash}p{5.5cm}|}
+		\hline
+		\rule[0.5cm]{0cm}{0cm} Type & Spécificité & Application & Description \\
+		\hline
+		\rule[0.5cm]{0cm}{0cm} Microphones à condensateur & Pour une sensibilité élevée & Captation de sons subtils dans la nature, tels que les chants d'oiseaux, le vent dans les arbres, ou les bruits d'insectes. & Offrent une sensibilité élevée, une réponse en fréquence étendue et une capacité à capturer des détails sonores subtils, les rendant idéaux pour la surveillance de l'environnement naturel. \\
+		\hline
+		\rule[0.5cm]{0cm}{0cm} Microphones dynamiques & Robustes pour des conditions difficiles & Surveillance environnementale dans des conditions extérieures difficiles. Par exemple, pour capturer des bruits de machines, des activités industrielles, ou des événements sportifs en plein air. & Robustes, durables, et peuvent gérer des niveaux sonores élevés, ce qui les rend adaptés à des environnements bruyants et exigeants. \\
+		\hline
+		\rule[0.5cm]{0cm}{0cm} Microphones piézoélectriques & Pour la capture de vibrations & Captation des vibrations du sol pour la surveillance sismique ou la détection des mouvements de la faune. & Convertissent les vibrations directement en signaux électriques, les rendant adaptés à la surveillance des phénomènes sismiques ou des mouvements au sol. \\
+		\hline
+		\rule[0.5cm]{0cm}{0cm} Microphones électrostatiques & Pour une haute qualité audio & Enregistrement précis des sons ambiants pour des applications de surveillance acoustique. Par exemple, pour l'étude des écosystèmes sonores. & Offrent une qualité audio exceptionnelle avec un faible niveau de bruit propre, adaptés à des applications de surveillance qui exigent une reproduction précise des sons ambiants. \\
+		\hline
+		\rule[0.5cm]{0cm}{0cm} Microphones directionnels & Pour une focalisation du son & Surveillance spécifique d'une source sonore dans un environnement bruyant, comme la capture d'appels d'oiseaux dans un parc urbain. & Conçus pour focaliser sur une source sonore spécifique, offrant une isolation significative dans des environnements où la directionnalité est décisive. \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\subsubsection{L’unité de traitement sonore}
+Après l'enregistrement audio, diverses méthodes peuvent être employées pour le traitement du son. On peut opter pour un traitement en chaîne d'instrumentation analogique. Mais actuellement, des modules abordables et efficaces sont utilisés pour convertir les données capturées en données informatiques, comme l'utilisation d'une carte son. Notre préoccupation principale réside dans le traitement des données capturées en vue de la prise de décision. 
+\\
+
+Dans ce paragraphe, nous poursuivons notre exploration de la composante matérielle, en nous concentrant initialement sur le dispositif de traitement dans le nœud capteur. Pour des considérations pratiques et techniques, l'utilisation de microcontrôleurs s'avère être la solution la plus adaptée dans le contexte d'une surveillance environnementale.
+\\
+
+Ainsi, voici quelques microcontrôleurs courants utilisés pour le traitement sonore :
+
+\begin{landscape}
+
+	\begin{table}[H]
+			\centering
+		\caption{Tableau de présentation des potentiels microcontrôleurs pour la surveillance environnementale}
+		\vspace{5mm}
+		\begin{tabular}{|m{3cm}|m{3cm}|m{3cm}|m{3cm}|m{3cm}|m{3cm}|m{3cm}|}
+		\hline
+		\textbf{Type} & \textbf{Consommation énergétique} & \textbf{Capacité de traitement} & \textbf{Programmation} & \textbf{Connectivité} & \textbf{Coût} & \textbf{Evolutivité} \\
+		\hline
+		Arduino & Faible & Modéré & Facile & Limité. Extensible avec des modules supplémentaires & Abordable & Limitée pour des applications complexes \\
+		\hline
+		Raspberry Pi & Modérée & Elevée, comparable à un ordinateur & Facile. Peut-être plus complexe que certains microcontrôleurs & Excellente, avec Ethernet, Wi-Fi, Bluetooth & Plus élevé que les microcontrôleurs plus simples & Excellente pour des applications avancées \\
+		\hline
+		ESP32 et ESP8266 & Modérée à faible & Modérée & Facile, similaire à l’Arduino & Excellente, avec Wi-Fi intégré & Abordable & Bonne pour des applications IoT \\
+		\hline
+		STM 32 & Variable en fonction du modèle, peut être faible & Elevée, adaptée à des applications complexes & Plus complexe que certains microcontrôleurs & Variable en fonction du modèle & Variable & Excellente pour des applications avancées \\
+		\hline
+		PIC Microcontrôleurs & Variable, certains modèles peuvent être de basse consommation & Modérée à élevée & Bien documentée. Peut-être plus complexe que certaines alternatives & Variable & Variable & Bonne pour des applications variées \\
+		\hline
+		BeagleBone Black & Plus élevée que certains microcontrôleurs & Elevée, comparable à un ordinateur & Peut-être plus complexe que certains microcontrôleurs & Excellent, avec Ethernet, Wi-Fi, Bluetooth intégrés & Plus élevé que les microcontrôleurs simples & Excellente pour des applications avancées \\
+		\hline
+	\end{tabular}
+	\end{table}
+\end{landscape}
+
+\subsubsection{Choix des composants matériels du système}
+Pour répondre à nos besoins, nous allons détailler le choix de nos composants principaux :
+Le microphone à électret : C’est un choix fréquent dans les applications où une faible consommation énergétique est nécessaire. Ce type de microphone utilise un matériau diélectrique polarisé en permanence pour capter les variations de pression acoustique. En raison de son faible niveau de bruit et de sa sensibilité élevée, cet appareil représente un choix optimal pour capturer des signaux sonores, tout en minimisant la consommation d'énergie \cite{66}. Cette caractéristique est particulièrement importante dans des applications autonomes.
+Voici son diagramme schématique :
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=15cm]{./img/9.png}
+	\caption{Diagramme schématique d'un microphone à électret}
+\end{figure}
+Le Raspberry Pi 3 : Elle est une solution informatique compacte et économe en énergie, ce qui en fait un choix idéal pour le traitement des données issues du microphone. Avec son processeur multi cœur et sa capacité à exécuter des programmes complexes, le Raspberry Pi 3 offre une plateforme flexible pour implémenter des algorithmes de traitement du signal \cite{67}. Cela peut inclure la détection de motifs sonores, la reconnaissance vocale, ou d'autres traitements adaptés à l'objectif spécifique du système. Elle nous permettra ainsi une évolutivité par rapport aux fonctionnalités. Le tableau suivant montre les caractéristiques techniques de Raspberry Pi 3B+ :
+
+\begin{table}[H]
+	\centering
+	\caption{Caractéristiques techniques de Raspberry Pi 3B+}
+	\vspace{5mm}
+	\begin{tabular}{|l|c|}
+		\hline
+		\textbf{Processeur} & Broadcom BCM2837B0,\\
+		& Cortex-A53 64-bit SoC @ 1.4GHz \\
+		\hline
+		\textbf{Mémoire} & 1 Gigaoctet \\
+		\hline
+		\textbf{Connectivité} & 
+		\begin{minipage}[t]{0.7\textwidth}
+			\begin{itemize}
+			
+				\item 2.4 GHz and 5 GHz IEEE 802.11b/g/n/ac
+				 wireless LAN, Bluetooth 4.2, BLE
+				\item Gigabit Ethernet sur USB 2.0
+				\item 4 interfaces USB 2.0
+				\vspace{3mm}
+			\end{itemize}
+		\end{minipage} \\
+		\hline
+		\textbf{Vidéo et son} & 
+		\begin{minipage}[t]{0.7\textwidth}
+			\begin{itemize}
+				
+				\item Une entrée HDMI
+				\item Port d’affichage MIPI DSI
+				\item Port caméra MIPI CSI
+				\item Sortie stéréo 4 pôles et port vidéo composite
+				\vspace{3mm}
+			\end{itemize}
+		\end{minipage} \\
+		\hline
+		\textbf{Support Carte SD} & Format Micro SD pour le chargement du \\
+		& système d’exploitation et le stockage des données \\
+		\hline
+		
+	\end{tabular}
+\end{table}
+
+La carte son USB : La connexion en liaison série entre le microphone à électret et le Raspberry Pi 3 via une carte son permet d'acheminer les données de manière efficace. La liaison série est connue pour sa simplicité et son utilisation optimale des ressources. La carte son assure une interface fiable entre le microphone et le Raspberry Pi, facilitant la transmission des signaux audio. Cette contribution essentielle aide à maintenir la consommation d'énergie à un niveau bas \cite{68}.
+\\
+Le générateur sonore : L'ajout d'un générateur sonore d'une intensité de 120 dB pour l'alarme est une mesure importante pour garantir une notification influente \cite{69}]. La puissance sonore élevée assure une alerte audible même dans des environnements bruyants. Il est essentiel que ce générateur sonore soit activé de manière sélective pour minimiser la consommation d'énergie lorsqu'il n'est pas nécessaire.
+\\
+
+\section{Étude de la consommation énergétique du système}
+\subsection{Mode de calcul de la consommation du système}
+Pour calculer l’énergie consommée par le système\cite{70}, on va utiliser l’équation :
+\begin{equation}
+E = \sum_{i} P_i \times T_i
+\end{equation}
+
+\begin{itemize}
+	\item E [Wh] : Énergie totale
+	\item	Pi [W] : Puissance active pour chaque composant
+	\item	Ti [h] : Temps d'utilisation
+\end{itemize}	
+
+Ensuite, le tableau suivant détaille les caractéristiques techniques \cite{71} du système :
+
+\begin{table}[H]
+	\centering
+	\caption{Caractéristiques techniques des composants du système électronique
+}
+	\vspace{5mm}
+	\begin{tabular}[c]{|>{\centering\arraybackslash}p{3cm}|>{\centering\arraybackslash}p{4cm}|>{\centering\arraybackslash}p{4cm}|>{\centering\arraybackslash}p{4cm}|}
+		\hline
+		\textbf{Composant} & \textbf{Tension de fonctionnement (V)} & \textbf{Courant (A)} & \textbf{Puissance active (W)} \\
+		\hline
+		Microphone à électret & 1,5 à 10 & 0,5 $\times$ $10^{-3}$ & $4,5 \times 10^{-3}$ \\
+		\hline
+		Carte son & 5 & 26 $\times$ $10^{-3}$ & 0,13 \\
+		\hline
+		Raspberry Pi 3 actif & 5 & 1 & 5 \\
+		\hline
+		Raspberry Pi 3 inactif & 5 & 200 $\times$ $10^{-3}$ & 1 \\
+		\hline
+		Alarme & 9 à 12 & 333 $\times$ $10^{-3}$ & 4 \\
+		\hline
+	\end{tabular}
+\end{table}
+
+
+\subsection{Évaluation en fonction du temps d’utilisation }
+\subsubsection{	Cas du système en surveillance ininterrompue}
+Ici, nous parlons d'une surveillance ininterrompue, un système fonctionnant 24 heures sur 24. Et le résultat est présenté dans le Tableau 2.5 :
+
+
+\begin{table}[H]
+	\centering
+	\caption{Consommation d'énergie par composant sur une période de 24 heures en surveillance ininterrompue
+}
+	\vspace{5mm}
+	\begin{tabular}[c]{|>{\centering\arraybackslash}p{3cm}|>{\centering\arraybackslash}p{4cm}|>{\centering\arraybackslash}p{4cm}|>{\centering\arraybackslash}p{4cm}|}
+			\hline
+			\textbf{Équipement} & \textbf{Durée (h)} & \textbf{Puissance active (W)} & \textbf{Énergie consommée (Wh)} \\
+			\hline
+			Microphone à électret & 24 & $4,5 \times 10^{-3}$ & $108 \times 10^{-3}$ \\
+			\hline
+			Carte son USB & 24 & 0,13 & 3,12 \\
+			\hline
+			Raspberry Pi 3 actif & 24 & 5 & 120 \\
+			\hline
+			Alarme & $n \times \left(\frac{10}{60}\right)$ & 4 & $4 \times n \times \left(\frac{10}{60}\right)$ \\
+			\hline
+			\multicolumn{2}{|c|}{Énergie totale Etot} & \multicolumn{2}{c|}{$123,228 + 4 \times n \times \left(\frac{10}{60}\right)$} \\ 
+			\hline 
+		\end{tabular} 
+\end{table}
+
+
+
+
+Pour \( n \) nombre de détections dans une journée, dans lesquelles l'alarme retentit pendant 10 minutes, on a la valeur :\\ Énergie totale \( E_{\text{tot}} = 123,228 + 4 \times n \times \left(\frac{10}{60}\right) \).
+Prenons un exemple : pour quatre détections en 24 heures, l'énergie est estimée à environ \( 123,228 + 4 \times 4 \times \left(\frac{10}{60}\right) = 125,895 \) Wh.
+
+
+\subsubsection{Etude en fonction de l’état de situation au parc}	
+En tenant compte de l’enquête contextuelle du site, voici quelques paramètres que nous avons pris en compte :
+\begin{itemize}
+	\item Début de la surveillance : à 4h du matin
+	\item	Fin de la surveillance : à 20h
+	\item	Intervalle d'activation du système : toutes les 10 minutes
+	\item	Durée maximale de traitement du son lors de l'activation : 15 secondes
+	\item	Durée de déclenchement de l'alarme sur détection d'une infraction : 10 minutes
+\end{itemize}
+
+\begin{table}[H]
+	\centering
+	\caption{Calcul du temps d'utilisation des composants
+}
+	\vspace{5mm}
+	\begin{tabular}[c]{|>{\centering\arraybackslash}p{4cm}|>{\centering\arraybackslash}p{2.5cm}|>{\centering\arraybackslash}p{2.5cm}|>{\centering\arraybackslash}p{2.5cm}|>{\centering\arraybackslash}p{2.5cm}|}
+		\hline
+		\textbf{Équipement} & \textbf{Nombre d'heures (h)} & \textbf{Durée d'activation (s)} & \textbf{Nombre par heure} & \textbf{Durée totale (h)} \\
+		\hline
+		Microphone & 16 & 15 & 6 & 0,4 \\
+		\hline
+		Carte son USB & 16 & 15 & 6 & 0,4 \\
+		\hline
+		Raspberry Pi 3 actif & 16 & 15 & 6 & 0,4 \\
+		\hline
+		Alarme & - & $10 \times 60$ & En fonction de (n), nombre de détections & $n \times \left(\frac{10}{60}\right)$ \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\subsubsection{Consommation optimisée en une période de 24 heures}
+Par conséquent, l'énergie totale sur 24 heures calculée à partir de l'équation (2.1) est présentée dans le Tableau 2.7 :
+
+
+\begin{table}[H]
+	\centering
+	\caption{Consommation d'énergie par composants sur une période de 24 heures avec un suivi optimisé
+}
+	\vspace{5mm}
+	\begin{tabular}[c]{|>{\centering\arraybackslash}p{4cm}|>{\centering\arraybackslash}p{3cm}|>{\centering\arraybackslash}p{3cm}|>{\centering\arraybackslash}p{3cm}|}
+	\hline
+	\textbf{Équipement} & \textbf{Durée totale (h)} & \textbf{Puissance active (W)} & \textbf{Énergie consommée (Wh)} \\
+	\hline
+	Microphone à électret & 0,4 & $4,5 \times 10^{-3}$ & $1,8 \times 10^{-3}$ \\
+	\hline
+	Carte son & 0,4 & 0,13 & $52 \times 10^{-3}$ \\
+	\hline
+	Raspberry Pi 3 Actif (*) & 0,4 & 5 & 2 \\
+	\hline
+	Raspberry Pi 3 Inactif (*) & $23,6 - n \times \left(\frac{10}{60}\right)$ & 1 & $23,6 - n \times \left(\frac{10}{60}\right)$ \\
+	\hline
+	Alarme & $n \times \left(\frac{10}{60}\right)$ & 4 & $4 \times n \times \left(\frac{10}{60}\right)$ \\
+	\hline
+	\multicolumn{2}{|c|}{Total d'énergie consommée en 24 heures} & \multicolumn{2}{|c|}{$25,65 + 3 \times n \times \left(\frac{10}{60}\right)$ } \\ 
+	\hline 
+\end{tabular} 
+\end{table}
+
+
+
+Lorsque l'alarme est déclenchée, le microcontrôleur sort du mode veille. En conséquence, nous déduisons l'énergie en veille et ajoutons l'énergie pendant l'activité. Ceci signifie qu’on ajoute environ 0,5 Wh pour chaque détection.
+\\
+Par exemple, avec quatre détections par jour, la consommation totale est de 27,65 Wh.
+
+\section{Etude énergétique en surveillance environnementale et forestière}
+\subsection{Défis et solutions dans la surveillance environnementale}
+\subsubsection{La nécessité de garantir une continuité de surveillance dans des environnement hostiles}
+Pour assurer une surveillance environnementale constante, il est impératif de rechercher des sources d'alimentation fiables et durables, garantissant ainsi la collecte ininterrompue de données essentielles pour la préservation de l'écosystème. Cette quête de stabilité énergétique est indispensable dans le domaine de la surveillance environnementale \cite{63}. Ainsi, l'un des défis majeurs réside dans l'approvisionnement constant en énergie des dispositifs de surveillance, surtout dans des environnements hostiles tels que les zones forestières éloignées. Les contraintes liées à l'éloignement des sources d'énergie conventionnelles, et aux difficultés logistiques rendent essentiel le développement de solutions autonomes.
+
+\subsubsection{Orientation vers une solution autonome}
+L'efficacité d'un système de surveillance environnementale repose aussi en grande partie sur sa capacité à fonctionner de manière autonome, sans dépendre d'une alimentation externe constante. La nécessité d'un système d'alimentation autonome est exacerbée dans des contextes où l'accès régulier pour le remplacement des sources d'énergie est difficile. Un dispositif capable de s'auto-alimenter augmente la fiabilité de la surveillance tout en minimisant l'impact écologique lié aux interventions humaines fréquentes. Cette autonomie devient ainsi une pierre angulaire pour assurer la pérennité et l'efficacité des systèmes de surveillance environnementale \cite{58}.
+
+\subsubsection{Option pour le choix d’un système photovoltaïque}
+En suite logique avec les paragraphes précédents, le choix du système photovoltaïque émerge comme une solution particulièrement adaptée pour répondre aux exigences de la surveillance environnementale. Les panneaux solaires offrent une source d'énergie renouvelable, durable et respectueuse de l'environnement. En exploitant l'énergie du soleil, les dispositifs de surveillance peuvent fonctionner de manière continue, même dans des zones isolées \cite{72} , \cite{73}. De plus, cette approche contribue à réduire l'empreinte carbone, renforçant ainsi la compatibilité des systèmes de surveillance avec les objectifs de durabilité et de préservation environnementale.
+
+\subsection{Contexte énergétique dans la forêt de la Montagne d’Ambre}
+\subsubsection{Contexte d'ombrage en forêt et choix d’outils}
+Dans notre cas, le site d'étude est une forêt dense, le positionnement des panneaux se fait donc dans une des zones partiellement ombragées.
+\\
+
+Travaillant en milieu forestier, les arbres génèrent à certains moments des ombres sur les panneaux. L'ombrage a un impact réducteur sur les performances du panneau\cite{74}. Il est complexe d'avoir une équation mathématique définissant le taux de réduction de l'irradiation solaire de l'environnement. Nous nous proposons de réaliser des calculs empiriques afin d'avoir une relation ponctuelle entre les performances d'un panneau en plein soleil et un panneau en zone ombragée.
+Ainsi, nous avons utilisé deux kits d'appareils de mesure aux caractéristiques identiques constitués d'un panneau solaire, d'un multimètre. Le but est de mesurer la tension de sortie des deux zones et de faire la comparaison. Voici le tableau des caractéristiques du panneau en conditions STC :
+
+
+\begin{table}[H]
+	\centering
+	\caption{Caractéristiques du panneau}
+	\vspace{5mm}
+	\begin{tabular}{|c|c|}
+		\hline
+		\textbf{Caractéristique} & \textbf{Valeur} \\
+		\hline
+		Puissance maximale/Pmax (W) & 100 \\
+		\hline
+		Tolérance de puissance maximale & $\pm$ 3\% \\
+		\hline
+		Tension en circuit ouvert/Vco (V) & 22,32 \\
+		\hline
+		Courant de court-circuit/Icc (A) & 5,94 \\
+		\hline
+		Tension de puissance maximale/Vpm (V) & 18 \\
+		\hline
+		Courant de puissance maximale/Ipm(A) & 5,56 \\
+		\hline
+		Technologie cellulaire & Silicium-Mono \\
+		\hline
+	\end{tabular}
+\end{table}
+
+Les relevés ont été réalisés le 4 novembre 2023, de 13h56 à 15h54, avec une fréquence de mesure toutes les deux minutes. La séparation entre les deux sites de mesure est de 50 mètres. 
+
+\subsubsection{Données collectées dans une zone ensoleillée}
+Le Tableau 2.9 présente les données collectées sur le panneau sous la lumière directe du soleil.
+
+\begin{table}[H]
+	\centering
+	\caption{Données d'un panneau solaire en plein soleil}
+	\vspace{5mm}
+	\begin{minipage}[t]{0.45\linewidth}
+		\centering
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\textbf{Heure} & \textbf{Vco (V)} & \textbf{Icc (A)} \\
+			\hline
+			13:56 & 20,30 & 1,29 \\
+			13:58 & 19,50 & 1,24 \\
+			14:00 & 19,60 & 1,21 \\
+			14:02 & 19,90 & 1,40 \\
+			14:04 & 19,70 & 1,30 \\
+			14:06 & 19,72 & 1,21 \\
+			14:08 & 19,40 & 1,01 \\
+			14:10 & 18,60 & 1,18 \\
+			14:12 & 18,40 & 0,58 \\
+			14:14 & 19,20 & 0,75 \\
+			14:16 & 18,90 & 0,63 \\
+			14:18 & 19,70 & 1,10 \\
+			14:20 & 19,90 & 1,20 \\
+			14:22 & 20,20 & 1,34 \\
+			14:24 & 19,30 & 0,80 \\
+			14:26 & 19,00 & 0,66 \\
+			14:28 & 19,00 & 0,64 \\
+			14:30 & 19,10 & 0,62 \\
+			14:32 & 19,20 & 0,70 \\
+			14:34 & 18,90 & 0,61 \\
+			14:36 & 18,70 & 0,45 \\
+			14:38 & 18,70 & 0,44 \\
+			14:40 & 18,90 & 0,61 \\
+			14:42 & 18,80 & 0,47 \\
+			14:44 & 18,80 & 0,44 \\
+			14:46 & 19,00 & 0,49 \\
+			14:48 & 19,10 & 0,52 \\
+			14:50 & 19,10 & 0,56 \\
+			14:52 & 19,10 & 0,54 \\
+			14:54 & 19,08 & 0,52 \\
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.45\linewidth}
+		\centering
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\textbf{Heure} & \textbf{Vco (V)} & \textbf{Icc (A)} \\
+			\hline
+			14:56 & 18,85 & 0,40 \\
+			14:58 & 18,77 & 0,38 \\
+			15:00 & 18,95 & 0,45 \\
+			15:02 & 19,18 & 0,51 \\
+			15:04 & 19,21 & 0,55 \\
+			15:06 & 19,93 & 0,67 \\
+			15:08 & 19,47 & 0,66 \\
+			15:10 & 19,81 & 0,87 \\
+			15:12 & 20,02 & 1,16 \\
+			15:14 & 20,00 & 0,94 \\
+			15:16 & 19,90 & 1,00 \\
+			15:18 & 19,40 & 0,78 \\
+			15:20 & 19,03 & 0,50 \\
+			15:22 & 18,88 & 0,47 \\
+			15:24 & 18,86 & 0,42 \\
+			15:26 & 18,73 & 0,37 \\
+			15:28 & 18,57 & 0,26 \\
+			15:30 & 18,08 & 0,20 \\
+			15:32 & 18,43 & 0,29 \\
+			15:34 & 18,96 & 0,38 \\
+			15:36 & 19,07 & 0,42 \\
+			15:38 & 18,77 & 0,39 \\
+			15:40 & 18,70 & 0,30 \\
+			15:42 & 18,68 & 0,33 \\
+			15:44 & 18,45 & 0,24 \\
+			15:46 & 19,03 & 0,38 \\
+			15:48 & 19,50 & 0,61 \\
+			15:50 & 19,64 & 0,65 \\
+			15:52 & 19,66 & 0,63 \\
+			15:54 & 19,20 & 0,54 \\
+			\hline
+		\end{tabular}
+	\end{minipage}
+\end{table}
+
+
+\subsubsection{Données collectées dans une zone ombragée}
+Quant au Tableau 2.10, il représente les données collectées sur le panneau dans un endroit ombragé par la forêt.
+
+\begin{table}[H]
+	\centering
+	\caption{Données provenant d'un panneau solaire placé dans un endroit ombragé}
+	\vspace{5mm}
+	\begin{minipage}[t]{0.45\linewidth}
+		\centering
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\textbf{Heure} & \textbf{Vco (V)} & \textbf{Icc (A)} \\
+			\hline
+			13:56 & 19,10 & 0,46 \\
+			13:58 & 19,30 & 0,48 \\
+			14:00 & 19,50 & 0,51 \\
+			14:02 & 19,70 & 0,58 \\
+			14:04 & 19,20 & 0,61 \\
+			14:06 & 19,10 & 0,60 \\
+			14:08 & 18,80 & 0,62 \\
+			14:10 & 18,30 & 0,23 \\
+			14:12 & 18,20 & 0,24 \\
+			14:14 & 18,50 & 0,28 \\
+			14:16 & 18,40 & 0,26 \\
+			14:18 & 18,90 & 0,41 \\
+			14:20 & 19,00 & 0,44 \\
+			14:22 & 19,10 & 0,50 \\
+			14:24 & 18,80 & 0,39 \\
+			14:26 & 18,60 & 0,30 \\
+			14:28 & 18,40 & 0,28 \\
+			14:30 & 18,50 & 0,30 \\
+			14:32 & 18,40 & 0,26 \\
+			14:34 & 18,30 & 0,23 \\
+			14:36 & 18,10 & 0,20 \\
+			14:38 & 18,30 & 0,21 \\
+			14:40 & 18,50 & 0,24 \\
+			14:42 & 18,18 & 0,19 \\
+			14:44 & 18,24 & 0,21 \\
+			14:46 & 18,35 & 0,22 \\
+			14:48 & 18,38 & 0,24 \\
+			14:50 & 18,42 & 0,23 \\
+			14:52 & 18,44 & 0,24 \\
+			14:54 & 18,46 & 0,23 \\
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.45\linewidth}
+		\centering
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\textbf{Heure} & \textbf{Vco (V)} & \textbf{Icc (A)} \\
+			\hline
+			14:56 & 18,40 & 0,21 \\
+			14:58 & 18,27 & 0,19 \\
+			15:00 & 18,40 & 0,22 \\
+			15:02 & 18,42 & 0,23 \\
+			15:04 & 18,40 & 0,22 \\
+			15:06 & 18,62 & 0,27 \\
+			15:08 & 18,69 & 0,28 \\
+			15:10 & 18,89 & 0,33 \\
+			15:12 & 19,22 & 0,43 \\
+			15:14 & 19,07 & 0,38 \\
+			15:16 & 19,07 & 0,38 \\
+			15:18 & 18,42 & 0,29 \\
+			15:20 & 18,36 & 0,23 \\
+			15:22 & 18,35 & 0,22 \\
+			15:24 & 18,37 & 0,20 \\
+			15:26 & 18,25 & 0,20 \\
+			15:28 & 17,65 & 0,12 \\
+			15:30 & 17,67 & 0,13 \\
+			15:32 & 18,00 & 0,13 \\
+			15:34 & 18,35 & 0,20 \\
+			15:36 & 18,20 & 0,19 \\
+			15:38 & 18,18 & 0,17 \\
+			15:40 & 18,19 & 0,16 \\
+			15:42 & 18,20 & 0,17 \\
+			15:44 & 18,05 & 0,16 \\
+			15:46 & 18,33 & 0,20 \\
+			15:48 & 18,69 & 0,25 \\
+			15:50 & 18,76 & 0,30 \\
+			15:52 & 18,71 & 0,29 \\
+			15:54 & 18,52 & 0,24 \\
+			\hline
+		\end{tabular}
+	\end{minipage}
+\end{table}
+
+
+
+\subsection{Comparaison des résultats de mesure}
+\subsubsection{Comparaison de la tension aux deux endroits}
+
+Si l’on calcule et compare la tension en circuit ouvert en plein soleil avec la tension en situation ombragée, on obtient la courbe suivante :
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=10cm]{./img/10.png}
+	\caption{Comparaison de la tension à circuit ouvert entre un panneau situé dans une zone ombragée et un panneau exposé à la lumière directe du soleil}
+\end{figure}
+
+L'observation révèle une fluctuation constante de la tension entre les deux emplacements, présentant un taux moyen de réduction de 3,32 \% en présence d'ombrage par rapport à une exposition directe à la lumière solaire. 
+
+\subsubsection{Comparaison du courant aux deux endroits}
+Si l’on compare le courant de court-circuit en plein soleil avec le courant en présence d’ombrage, on obtient la courbe suivante :
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=10cm]{./img/11.png}
+	\caption{Comparaison du courant de court-circuit entre un panneau situé dans une zone ombragée et un panneau exposé à la lumière directe du soleil
+}
+	
+\end{figure}
+
+On voit ici que la courbe de courant des deux panneaux respectivement en zone ombragée et en plein soleil a un aspect à peu près identique. Cependant, on peut encore soutenir que plus la valeur du courant augmente, plus la différence est grande, dont la réduction descend jusqu'à 37\% de la valeur en plein soleil.
+
+\subsubsection{Effet par rapport à la puissance}
+La variation de tension n’étant pas trop importante, la variation de puissance suit plutôt la variation de courant. Lorsque nous avons calculé la valeur moyenne de la réduction de puissance, nous avons obtenu 43\% par rapport à la puissance en plein soleil. Voici la courbe de comparaison de la puissance entre les deux endroits :
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=10cm]{./img/12.png}
+	\caption{omparaison de puissance entre le panneau situé dans une zone ombragée et le panneau exposé à la lumière directe du soleil}
+\end{figure}
+
+\section{Dimensionnement du système d’alimentation}
+\subsection{Dimensionnement des panneaux solaires}
+\subsubsection{Calcul de la puissance crête et de l’énergie journalière}
+Pour déterminer la puissance du panneau photovoltaïque nécessaire en plein soleil\cite{75}, nous utiliserons l'équation suivante :
+\\
+\begin{equation}
+P_{\text{pan}} = \frac{E_{\text{cj}}}{h \times \text{Ratio}_{\text{perf}}} \tag{2.2}
+\end{equation}
+
+Avec :
+\begin{itemize}
+	\item \( P_{\text{pan}} \) : Puissance du panneau [Wcrête]
+	\item \( E_{\text{cj}} \) : Énergie consommée quotidiennement [Wh]
+	\item \( h \) : heure d’ensoleillement [h]
+	\item \( \text{Ratio}_{\text{perf}} \) : Ratio de performance du panneau
+\end{itemize}
+Cependant, la puissance de ce panneau diminuera de 43 \% dans la zone ombragée. Il faut donc calculer la puissance de notre panneau avec l'équation suivante :
+\\
+
+\begin{equation}
+P_{\text{SP}} = \frac{E_{\text{cj}} \times 100}{43 \times h \times \text{Ratio}_{\text{perf}}} \tag{2.3}
+\end{equation}
+
+Avec :
+\begin{itemize}
+	\item \( P_{\text{SP}} \) : Puissance du panneau en zone ombragée [Wcrête]
+\end{itemize}
+Pour l’énergie consommée par jour, elle est calculée dans les paragraphes précédents dont la valeur s'élève à :
+\\
+\begin{equation}
+E_{\text{cj}} = 25.65 + n \times 0.5 \tag{2.4}
+\end{equation}
+
+Avec \( n \) le nombre de détection par jour. Supposons qu'un maximum de 4 violations quotidiennes soient détectées, alors \( E_{\text{cj}} \) devient 27.65 Wh.
+
+\subsubsection{	Rayonnement minimum et capacité énergétique}
+Les données mensuelles fournies par PVGIS7.0 du site Montagne d'Ambre sont données par le tableau suivant :
+
+\begin{table}[H]
+	\centering
+	\caption{Irradiation globale et température du Parc de la Montagne d'Ambre
+}
+	\vspace{5mm}
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\textbf{Mois} & \textbf{Irradiation [kWh/m²/j]} & \textbf{Température [°C]} \\
+		\hline
+		Janvier & 4,94 & 22,20 \\
+		\hline
+		Février & 4,38 & 22,70 \\
+		\hline
+		Mars & 5,07 & 22,90 \\
+		\hline
+		Avril & 4,62 & 23,00 \\
+		\hline
+		Mai & 4,46 & 22,00 \\
+		\hline
+		Juin & \colorbox{cyan}{4,00} & 21,00 \\
+		\hline
+		Juillet & 4,00 & 19,90 \\
+		\hline
+		Août & 4,19 & 19,80 \\
+		\hline
+		Septembre & 4,52 & 20,70 \\
+		\hline
+		Octobre & 5,50 & 22,40 \\
+		\hline
+		Novembre & 5,58 & 22,50 \\
+		\hline
+		Décembre & 5,01 & 22,70 \\
+		\hline
+		Annuel & 4,69 & 21,82 \\
+		\hline
+	\end{tabular}
+\end{table}
+
+En prenant la valeur du mois le plus défavorable, on a une valeur d’irradiation égale à 4,00 kWh/m\textsuperscript{2}/jour
+Pour avoir l’heure d’ensoleillement, on utilise l’équation :
+
+\begin{equation}
+h = \frac{\text{Irradiation}}{\text{Irradiance globale}} \tag{2.5}
+\end{equation}
+
+Avec :
+\begin{itemize}
+	\item \( h \) [h] : heure d'ensoleillement
+	\item Irradiation [Wh/m²/j]
+	\item Irradiance globale [W/m²/j]
+\end{itemize}
+
+\subsubsection{Rapport de performances du système et puissance maximale du panneau}
+Le ratio de performance d'un système varie de 0,6 à 0,8. La valeur que nous prendrons sera la valeur moyenne de 0,7.
+D’après l’équation. (2.3), on a :
+
+\begin{equation}
+P_{\text{SP}} = \frac{27,65 \times 100}{43 \times 4 \times 0.7} = 22,93 \, \text{Wc} \approx 23 \, \text{Wc}
+\end{equation}
+Ainsi, la puissance du panneau = 23 Wc.
+
+\subsection{Dimensionnement de la batterie}
+La taille de la batterie est déterminée par plusieurs facteurs :
+
+\begin{itemize}
+	\item Énergie consommée et profondeur de décharge
+	\item	Intensité de décharge maximale
+\end{itemize}
+
+\subsubsection{Capacité de la batterie nécessaire en tenant compte de la profondeur de décharge}	
+Par rapport à l'énergie consommée et à la profondeur de décharge, la capacité de la batterie peut être calculée par :
+\\
+
+
+\begin{equation}
+\text{Capacité} = \frac{\text{Énergie}}{\text{Profondeur de décharge} \times \text{Voltage}} \tag{2.6}
+\end{equation}  
+\\
+
+La profondeur de décharge de la batterie fait référence au niveau d’épuisement de la capacité de la batterie après utilisation. Ainsi, pour assurer la durée de vie de notre batterie, nous choisirons une profondeur de décharge de 80\%.
+Selon la disponibilité de la batterie, nous choisissons une batterie 12 V, choix pour les systèmes à faible consommation.
+\\
+La capacité de la batterie est alors dimensionnée à :
+
+Capacité = 27,65 / (0,8*12) = 2,8 [Ah].
+
+\subsubsection{Capacité de la batterie par rapport à l’intensité maximale de décharge}
+Compte tenu de l’intensité maximale de décharge, la taille de la batterie doit avoir une valeur dix fois supérieure à cette valeur. Le courant de décharge maximal est déterminé en additionnant les intensités de courant maximales de tous les composants fonctionnants simultanément.
+Comme défini précédemment, il existe trois scénarios de fonctionnement simultané :
+\\
+
+\begin{itemize}
+	\item Cas 1 : mode veille, où l'ensemble du système est en veille.
+	\item Cas 2 : Mode capture et identification, impliquant le microcontrôleur, le microphone et la carte son.
+	\item Cas 3 : Mode de signalisation et activation de l'alarme, avec le microcontrôleur et le système d'alarme en fonctionnement.
+\end{itemize}
+
+
+\begin{table}[H]
+	\centering
+	\caption{Évaluation du courant maximal}
+	\vspace{5mm}
+	\begin{tabular}{|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{3cm}|}
+		\hline
+		\textbf{Composant} & \textbf{Courant par composant [A]} & \textbf{Cas 1 [A]} & \textbf{Cas 2 [A]} & \textbf{Cas 3 [A]} \\
+		\hline
+		Microphone à électret & $0,5 \times 10^{-3}$ & 0 & $0,5 \times 10^{-3}$ & 0 \\
+		\hline
+		Carte son & $26 \times 10^{-3}$ & 0 & $26 \times 10^{-3}$ & 0 \\
+		\hline
+		Raspberry Pi 3 & 1 & 0 & 1 & 1 \\
+		\hline
+		Raspberry Pi 3 inactif & $200 \times 10^{-3}$ & $200 \times 10^{-3}$ & 0 & 0 \\
+		\hline
+		Alarme & $333 \times 10^{-3}$ & 0 & 0 & $333 \times 10^{-3}$ \\
+		\hline
+		\textbf{Total} &  & $200 \times 10^{-3}$ & 1,0265 & 1,333 \\
+		\hline
+	\end{tabular}
+\end{table}
+
+La capacité maximale requise est donc Cmax = 10*1,333 = 13,33 Ah.\\
+L'utilisation de cette capacité maximale s'avère avantageuse, car elle répond à la demande lors de l'utilisation de l'intensité maximale. De plus, en considérant les besoins journaliers, nous disposons d'une marge de 4,76 jours sans soleil, calculée en utilisant le rapport Cmax / Cmin, où Cmax est la capacité maximale et Cmin est la capacité minimale
+
+\section{Conclusion}
+En conclusion, l'examen approfondi des caractéristiques des capteurs au sol a clairement démontré que l'utilisation de capteurs sonores associés à des microcontrôleurs représente une solution prometteuse répondant à nos objectifs de réduction de la consommation d'énergie et d'optimisation de l'autonomie des nœuds capteurs. L'intégration judicieuse d'un microcontrôleur dans le processus de traitement sonore offre une gestion efficace des ressources énergétiques, contribuant ainsi à prolonger la durée de vie opérationnelle des capteurs. De plus, l'algorithme de surveillance adopté se révèle être un élément clé pour atteindre une efficacité accrue dans la surveillance tout en limitant la consommation d'énergie. Cette approche démontre un engagement envers la durabilité énergétique et une performance considérable dans le contexte de la surveillance environnementale.
+\\
+
+Suite à l'optimisation du suivi en fonction du contexte du site, nous avons constaté une diminution de la consommation énergétique de notre appareil, la ramenant à 27,56 Wh pour une journée d'utilisation. Cela prend en compte un maximum de 4 infractions par jour au même endroit. En ce qui concerne l'approvisionnement en énergie, l'ombrage créé par la forêt a un impact négatif sur la quantité de lumière atteignant le panneau solaire, réduisant sa production à seulement 43 pour cent par rapport au courant sous la lumière directe du soleil. Malgré la légère réduction de tension de 3,32 pour cent, cela affecte la valeur de puissance du panneau dans les zones ombragées. Suite à cette évaluation, nous avons pu dimensionner la puissance du panneau solaire pour qu’elle soit adaptée au système, fixée à 23 Wc. De même, la capacité de la batterie a été dimensionnée à 13,33 Ah, fonctionnant à 12 V pour une consommation journalière de 2,8 Ah, avec une marge de 4,76 jours d’utilisation en l’absence de soleil.
+Les conclusions de cette étude sur le matériel ouvrent des perspectives encourageantes pour créer des systèmes de surveillance économiques en énergie et autonomes. Elles constituent une base solide pour orienter nos efforts vers la prochaine phase de développement, à savoir le traitement de données. Dans cette étape, nous envisageons d'exploiter les données sonores collectées à travers des modèles d'apprentissage automatique. Cette approche novatrice a pour objectif d'améliorer l'efficacité et la précision de la surveillance, ainsi que d'optimiser l'analyse des données. 
+

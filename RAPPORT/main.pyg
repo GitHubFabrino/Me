@@ -1,0 +1,5 @@
+   from google.colab import files
+
+   # Télécharger les modèles entraînés depuis Google Colab
+   files.download('Random Forest_rul_model.pkl')
+   files.download('Random Forest_soh_model.pkl')

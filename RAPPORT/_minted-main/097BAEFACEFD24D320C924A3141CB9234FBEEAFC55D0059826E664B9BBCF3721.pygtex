@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+   \PYG{c+c1}{\PYGZsh{} Visualisation des performances}
+   \PYG{n}{plt}\PYG{o}{.}\PYG{n}{figure}\PYG{p}{(}\PYG{n}{figsize}\PYG{o}{=}\PYG{p}{(}\PYG{l+m+mi}{12}\PYG{p}{,} \PYG{l+m+mi}{6}\PYG{p}{))}
+   \PYG{k}{for} \PYG{n}{target} \PYG{o+ow}{in} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}RUL (cycles)\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}SOH (\PYGZpc{})\PYGZsq{}}\PYG{p}{]:}
+     \PYG{n}{subset} \PYG{o}{=} \PYG{n}{results\PYGZus{}df}\PYG{p}{[}\PYG{n}{results\PYGZus{}df}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}Target\PYGZsq{}}\PYG{p}{]} \PYG{o}{==} \PYG{n}{target}\PYG{p}{]}
+     \PYG{k}{for} \PYG{n}{metric} \PYG{o+ow}{in} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}R2 Train\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}R2 Test\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}CrossVal R2\PYGZsq{}}\PYG{p}{]:}
+        \PYG{n}{plt}\PYG{o}{.}\PYG{n}{barh}\PYG{p}{(}\PYG{n}{subset}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}Model\PYGZsq{}}\PYG{p}{],} \PYG{n}{subset}\PYG{p}{[}\PYG{n}{metric}\PYG{p}{],} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+sa}{f}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{metric}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{ }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{target}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+   \PYG{n}{plt}\PYG{o}{.}\PYG{n}{title}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Comparaison des performances des modèles\PYGZdq{}}\PYG{p}{)}
+   \PYG{n}{plt}\PYG{o}{.}\PYG{n}{xlabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Score\PYGZdq{}}\PYG{p}{)}
+   \PYG{n}{plt}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{()}
+   \PYG{n}{plt}\PYG{o}{.}\PYG{n}{show}\PYG{p}{()}
+\end{Verbatim}

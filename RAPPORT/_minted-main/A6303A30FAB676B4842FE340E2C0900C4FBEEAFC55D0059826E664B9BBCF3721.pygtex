@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+   \PYG{k+kn}{from} \PYG{n+nn}{google.colab} \PYG{k+kn}{import} \PYG{n}{files}
+
+   \PYG{c+c1}{\PYGZsh{} Télécharger les modèles entraînés depuis Google Colab}
+   \PYG{n}{files}\PYG{o}{.}\PYG{n}{download}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Random Forest\PYGZus{}rul\PYGZus{}model.pkl\PYGZsq{}}\PYG{p}{)}
+   \PYG{n}{files}\PYG{o}{.}\PYG{n}{download}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Random Forest\PYGZus{}soh\PYGZus{}model.pkl\PYGZsq{}}\PYG{p}{)}
+\end{Verbatim}
